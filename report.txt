@@ -1,0 +1,44 @@
+-------------------------------------------------------------
+PART 1:
+
+Instruction: la $t4, alpha
+Adress of alpha stored in $t4: 0x10010034
+
+Exact instructions for la $t4, alpha:
+
+lui $1, 0x00001001
+ori $20, $1, 0x00000034
+
+Hex cod for "lui $1, 0x00001001": 0x3c011001
+Hex code for "ori $20, $1, 0x00000034": 0x3430034
+-------------------------------------------------------------
+PART 2:
+
+.data declaration: "SORT_RESULTS:				.asciiz	"Sort Results: ""
+first four characters in ASCII: S: 53, o: 6F, r: 72, t: 74
+
+Adress of string in memory: 0x10010000
+Word for string in memory: 0x74726f53
+-------------------------------------------------------------
+Part 3 (Write Up):
+
+During this exercise, I learned a lot of new tools and techniques within
+the MIPS simulator that I will definitely be putting into practice going
+further with this class. Breaking down pseudo-instructions like "la" and
+observing step by step how it is interacting with the memory and
+Registers were extremely intriguing. A couple questions that I had during
+The exercise was, "How are ori and lui interacting specifically?" and
+moreover, "What does the value stored in $at actually represent?".
+I'd say the most practical takeaway for me was setting and interacting
+with breakpoints, along with the string loading. Working with the data
+section to see where my string was being loaded, and the contents of
+that were extremely interesting. I am also still a little confused about
+why the ASCII was represented in reverse in the word stored in memory.
+Additionally, another realization I had was (I think) that the registers 
+can be accesed in accordance with their number. For example, a0 is the 4th 
+register and whenever we load a value or address into la the basic
+instruction is breaking that down and using $4. 
+Or, when I assigned a varaible to $s4, which is the 20th register, the 
+basic instruction was using $20.
+
+

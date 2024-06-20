@@ -1,0 +1,1360 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007ffffea2a7d4, pid=202, tid=231
+#
+# JRE version: OpenJDK Runtime Environment (11.0.21+9) (build 11.0.21+9-post-Ubuntu-0ubuntu122.04)
+# Java VM: OpenJDK 64-Bit Server VM (11.0.21+9-post-Ubuntu-0ubuntu122.04, mixed mode, sharing, tiered, compressed oops, g1 gc, linux-amd64)
+# Problematic frame:
+# V  [libjvm.so+0x79a7d4]  G1ParScanThreadState::copy_to_survivor_space(InCSetState, oopDesc*, markOopDesc*)+0x3c4
+#
+# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugs.launchpad.net/ubuntu/+source/openjdk-lts
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: Mars4.5la.jar sm asm1.s test_11_compare.s
+
+Host: x86_64, 8 cores, 7G, Ubuntu 22.04.3 LTS
+Time: Wed Jun 19 20:51:02 2024 UTC elapsed time: 1.286763 seconds (0d 0h 0m 1s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fffbc044800):  GCTaskThread "GC Thread#7" [stack: 0x00007fffd0325000,0x00007fffd0425000] [id=231]
+
+Stack: [0x00007fffd0325000,0x00007fffd0425000],  sp=0x00007fffd0423aa0,  free space=1018k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x79a7d4]  G1ParScanThreadState::copy_to_survivor_space(InCSetState, oopDesc*, markOopDesc*)+0x3c4
+V  [libjvm.so+0x79b2a3]  G1ParScanThreadState::trim_queue()+0x523
+V  [libjvm.so+0x758351]  G1ParEvacuateFollowersClosure::do_void()+0x1a1
+V  [libjvm.so+0x760052]  G1ParTask::work(unsigned int)+0x172
+V  [libjvm.so+0xed983e]  GangWorker::loop()+0x4e
+V  [libjvm.so+0xe3d4b0]  Thread::call_run()+0x140
+V  [libjvm.so+0xbf94de]  thread_native_entry(Thread*)+0xee
+
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x0000000000000010
+
+Register to memory mapping:
+
+RAX=0x0000000000000010 is an unknown value
+RBX=0x0000000000000050 is an unknown value
+RCX=0x0000000000000014 is an unknown value
+RDX=0x000000000000085e is an unknown value
+RSP=0x00007fffd0423aa0 points into unknown readable memory: 0x0000000000000004 | 04 00 00 00 00 00 00 00
+RBP=0x00007fffd0423b20 points into unknown readable memory: 0x00007fffd0423b90 | 90 3b 42 d0 ff 7f 00 00
+RSI=0x0000000000000200 is an unknown value
+RDI=0x0000000800000008 is pointing into metadata
+R8 =0x0 is NULL
+R9 =0x0000000000000001 is an unknown value
+R10=0x0000000000000010 is an unknown value
+R11=0x0 is NULL
+R12=0x0000000085e947f8 points into unknown readable memory: 0x0000000000000010 | 10 00 00 00 00 00 00 00
+R13=0x00007fff64000d50 points into unknown readable memory: 0x00007fffff417fd0 | d0 7f 41 ff ff 7f 00 00
+R14=0x0000000000000050 is an unknown value
+R15=0x0000000000000001 is an unknown value
+
+
+Registers:
+RAX=0x0000000000000010, RBX=0x0000000000000050, RCX=0x0000000000000014, RDX=0x000000000000085e
+RSP=0x00007fffd0423aa0, RBP=0x00007fffd0423b20, RSI=0x0000000000000200, RDI=0x0000000800000008
+R8 =0x0000000000000000, R9 =0x0000000000000001, R10=0x0000000000000010, R11=0x0000000000000000
+R12=0x0000000085e947f8, R13=0x00007fff64000d50, R14=0x0000000000000050, R15=0x0000000000000001
+RIP=0x00007ffffea2a7d4, EFLAGS=0x0000000000000243, CSGSFS=0x0000000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007fffd0423aa0)
+0x00007fffd0423aa0:   0000000000000004 00007ffffea2c687
+0x00007fffd0423ab0:   0000000000000008 000000000000000d
+0x00007fffd0423ac0:   0000000000000002 00000000858aa910
+0x00007fffd0423ad0:   0000000000000004 00000000858aa930 
+
+Instructions: (pc=0x00007ffffea2a7d4)
+0x00007ffffea2a6d4:   85 90 01 00 00 41 8b 51 08 89 f1 48 d3 e2 48 01
+0x00007ffffea2a6e4:   fa 48 63 4a 0c 4c 89 4d b8 4c 89 f7 4c 89 ce 48
+0x00007ffffea2a6f4:   8d 05 26 25 af 00 ff 14 c8 48 8b 45 b8 48 83 c4
+0x00007ffffea2a704:   58 5b 41 5c 41 5d 41 5e 41 5f 5d c3 0f 84 92 00
+0x00007ffffea2a714:   00 00 3c 01 48 8d 05 ad 9d aa 00 48 19 c9 8b 10
+0x00007ffffea2a724:   89 d8 83 e1 04 c1 f8 10 8d 72 ff 0f b6 c0 f7 da
+0x00007ffffea2a734:   48 63 f6 48 63 d2 48 01 f0 49 63 74 0c 0c 89 d9
+0x00007ffffea2a744:   48 d3 e6 4c 8d 34 30 49 21 d6 49 c1 ee 03 44 89
+0x00007ffffea2a754:   f3 4d 63 f6 e9 13 fd ff ff 0f 1f 00 48 8b 7a 08
+0x00007ffffea2a764:   e9 ed fc ff ff 0f 1f 80 00 00 00 00 4c 89 d0 41
+0x00007ffffea2a774:   f6 c2 01 74 57 48 c1 e8 03 41 89 c0 41 83 e0 0f
+0x00007ffffea2a784:   45 3b 85 6c 01 00 00 0f 83 10 fd ff ff 41 bb 01
+0x00007ffffea2a794:   00 00 00 31 f6 b8 01 00 00 00 e9 2b fd ff ff 0f
+0x00007ffffea2a7a4:   1f 44 00 00 48 8b 07 48 8d 15 ae c3 db ff 45 31
+0x00007ffffea2a7b4:   f6 48 8b 80 10 01 00 00 48 39 d0 0f 84 ab fc ff
+0x00007ffffea2a7c4:   ff e9 00 fe ff ff 66 0f 1f 44 00 00 48 83 e0 fd
+0x00007ffffea2a7d4:   48 8b 00 eb a0 0f 1f 80 00 00 00 00 48 83 c4 58
+0x00007ffffea2a7e4:   4c 89 e6 4c 89 ef 4c 89 d2 5b 41 5c 41 5d 41 5e
+0x00007ffffea2a7f4:   41 5f 5d e9 94 fa ff ff 0f 1f 40 00 48 8d 15 f1
+0x00007ffffea2a804:   a9 aa 00 0f b7 f1 48 3b 32 0f 8e 92 00 00 00 0f
+0x00007ffffea2a814:   b7 f1 8d 4e ff 89 75 a0 f7 de 48 63 c9 48 63 f6
+0x00007ffffea2a824:   4c 01 c9 48 21 f1 48 89 4d 98 4c 29 c9 48 89 ce
+0x00007ffffea2a834:   48 c1 ee 03 48 89 75 a8 48 89 f2 74 64 48 8d 0d
+0x00007ffffea2a844:   88 9c aa 00 8b 31 8d 4e 01 f7 de 21 f1 48 63 c9
+0x00007ffffea2a854:   48 39 ca 0f 82 f5 03 00 00 48 8b 4d 98 48 3b 4d
+0x00007ffffea2a864:   b8 48 89 45 a0 48 89 4d b8 0f 83 40 02 00 00 48
+0x00007ffffea2a874:   8b 75 a8 4c 89 cf ba 01 00 00 00 4c 89 55 88 44
+0x00007ffffea2a884:   88 5d 97 44 89 45 98 e8 e0 b4 e5 ff 4c 8b 4d b8
+0x00007ffffea2a894:   48 8b 45 a0 4c 8b 55 88 44 0f b6 5d 97 44 8b 45
+0x00007ffffea2a8a4:   98 4d 85 c9 0f 84 01 02 00 00 48 8b 50 38 4c 89
+0x00007ffffea2a8b4:   48 30 4c 29 ca 48 c1 ea 03 4c 39 f2 0f 82 e9 01
+0x00007ffffea2a8c4:   00 00 4b 8d 14 f1 48 89 50 30 e9 4b fc ff ff 0f 
+
+
+Stack slot to memory mapping:
+stack at sp + 0 slots: 0x0000000000000004 is an unknown value
+stack at sp + 1 slots: 0x00007ffffea2c687: <offset 0x000000000079c687> in /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so at 0x00007ffffe290000
+stack at sp + 2 slots: 0x0000000000000008 is an unknown value
+stack at sp + 3 slots: 0x000000000000000d is an unknown value
+stack at sp + 4 slots: 0x0000000000000002 is an unknown value
+stack at sp + 5 slots: 0x00000000858aa910 points into unknown readable memory: 0x00007ffff85e100d | 0d 10 5e f8 ff 7f 00 00
+stack at sp + 6 slots: 0x0000000000000004 is an unknown value
+stack at sp + 7 slots: 0x00000000858aa930 points into unknown readable memory: 0x000000000000000d | 0d 00 00 00 00 00 00 00
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007fff882c3e00, length=15, elements={
+0x00007ffff8015000, 0x00007ffff8187800, 0x00007ffff818a000, 0x00007ffff818f000,
+0x00007ffff8191000, 0x00007ffff8193000, 0x00007ffff8195000, 0x00007ffff8197000,
+0x00007ffff8203000, 0x00007fffa40ce000, 0x00007fffa40d0000, 0x00007ffff834d800,
+0x00007ffff85e1000, 0x00007fff882c1000, 0x00007fff882c2800
+}
+
+Java Threads: ( => current thread )
+  0x00007ffff8015000 JavaThread "main" [_thread_blocked, id=203, stack(0x00007ffffde5d000,0x00007ffffdf5d000)]
+  0x00007ffff8187800 JavaThread "Reference Handler" daemon [_thread_blocked, id=210, stack(0x00007fffd81b0000,0x00007fffd82b0000)]
+  0x00007ffff818a000 JavaThread "Finalizer" daemon [_thread_blocked, id=211, stack(0x00007fffd80b0000,0x00007fffd81b0000)]
+  0x00007ffff818f000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=212, stack(0x00007fffd1700000,0x00007fffd1800000)]
+  0x00007ffff8191000 JavaThread "Service Thread" daemon [_thread_blocked, id=213, stack(0x00007fffd1600000,0x00007fffd1700000)]
+  0x00007ffff8193000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=214, stack(0x00007fffd1500000,0x00007fffd1600000)]
+  0x00007ffff8195000 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=215, stack(0x00007fffd1400000,0x00007fffd1500000)]
+  0x00007ffff8197000 JavaThread "Sweeper thread" daemon [_thread_blocked, id=216, stack(0x00007fffd1300000,0x00007fffd1400000)]
+  0x00007ffff8203000 JavaThread "Common-Cleaner" daemon [_thread_blocked, id=218, stack(0x00007fffd10ff000,0x00007fffd11ff000)]
+  0x00007fffa40ce000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=219, stack(0x00007fffd0fff000,0x00007fffd10ff000)]
+  0x00007fffa40d0000 JavaThread "C2 CompilerThread2" daemon [_thread_blocked, id=220, stack(0x00007fffd0eff000,0x00007fffd0fff000)]
+  0x00007ffff834d800 JavaThread "Timer-0" daemon [_thread_blocked, id=223, stack(0x00007fffd0bfd000,0x00007fffd0cfd000)]
+  0x00007ffff85e1000 JavaThread "MIPS" [_thread_blocked, id=224, stack(0x00007fffd0a29000,0x00007fffd0b29000)]
+  0x00007fff882c1000 JavaThread "AWT-Shutdown" [_thread_blocked, id=225, stack(0x00007fffd0929000,0x00007fffd0a29000)]
+  0x00007fff882c2800 JavaThread "AWT-EventQueue-0" [_thread_blocked, id=226, stack(0x00007fffd0829000,0x00007fffd0929000)]
+
+Other Threads:
+  0x00007ffff8185000 VMThread "VM Thread" [stack: 0x00007fffe00fd000,0x00007fffe01fd000] [id=209]
+  0x00007ffff8201000 WatcherThread [stack: 0x00007fffd1200000,0x00007fffd1300000] [id=217]
+  0x00007ffff802e800 GCTaskThread "GC Thread#0" [stack: 0x00007ffffdb1b000,0x00007ffffdc1b000] [id=204]
+  0x00007fffbc001800 GCTaskThread "GC Thread#1" [stack: 0x00007fffd0dff000,0x00007fffd0eff000] [id=221]
+  0x00007fffbc003000 GCTaskThread "GC Thread#2" [stack: 0x00007fffd0cfe000,0x00007fffd0dfe000] [id=222]
+  0x00007fffbc03e800 GCTaskThread "GC Thread#3" [stack: 0x00007fffd0729000,0x00007fffd0829000] [id=227]
+  0x00007fffbc040000 GCTaskThread "GC Thread#4" [stack: 0x00007fffd0628000,0x00007fffd0728000] [id=228]
+  0x00007fffbc041800 GCTaskThread "GC Thread#5" [stack: 0x00007fffd0527000,0x00007fffd0627000] [id=229]
+  0x00007fffbc043000 GCTaskThread "GC Thread#6" [stack: 0x00007fffd0426000,0x00007fffd0526000] [id=230]
+=>0x00007fffbc044800 GCTaskThread "GC Thread#7" [stack: 0x00007fffd0325000,0x00007fffd0425000] [id=231]
+  0x00007ffff805f800 ConcurrentGCThread "G1 Main Marker" [stack: 0x00007ffffc614000,0x00007ffffc714000] [id=205]
+  0x00007ffff8061800 ConcurrentGCThread "G1 Conc#0" [stack: 0x00007ffffc513000,0x00007ffffc613000] [id=206]
+  0x00007ffff80ea800 ConcurrentGCThread "G1 Refine#0" [stack: 0x00007fffe03db000,0x00007fffe04db000] [id=207]
+  0x00007ffff80ec000 ConcurrentGCThread "G1 Young RemSet Sampling" [stack: 0x00007fffe02da000,0x00007fffe03da000] [id=208]
+
+Threads with active compile tasks:
+C2 CompilerThread2     1648 1246   !   4       mars.mips.instructions.syscalls.SyscallPrintString::simulate (66 bytes)
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007ffff8012f70] Threads_lock - owner thread: 0x00007ffff8185000
+[0x00007ffff8013750] Heap_lock - owner thread: 0x00007ffff85e1000
+
+Heap address: 0x0000000085600000, size: 1962 MB, Compressed Oops mode: 32-bit
+Narrow klass base: 0x0000000800000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x0000000840000000
+
+Heap:
+ garbage-first heap   total 14336K, used 7449K [0x0000000085600000, 0x0000000100000000)
+  region size 1024K, 5 young (5120K), 1 survivors (1024K)
+ Metaspace       used 7363K, capacity 7691K, committed 7936K, reserved 1056768K
+  class space    used 819K, capacity 965K, committed 1024K, reserved 1048576K
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, A=archive, TAMS=top-at-mark-start (previous, next)
+|   0|0x0000000085600000, 0x00000000856ffff0, 0x0000000085700000| 99%| O|  |TAMS 0x0000000085600000, 0x0000000085600000| Untracked 
+|   1|0x0000000085700000, 0x00000000857c88a0, 0x0000000085800000| 78%| O|  |TAMS 0x0000000085700000, 0x0000000085700000| Untracked 
+|   2|0x0000000085800000, 0x00000000858bbac0, 0x0000000085900000| 73%| O|  |TAMS 0x0000000085800000, 0x0000000085800000| Untracked 
+|   3|0x0000000085900000, 0x0000000085900000, 0x0000000085a00000|  0%| F|  |TAMS 0x0000000085900000, 0x0000000085900000| Untracked 
+|   4|0x0000000085a00000, 0x0000000085a00000, 0x0000000085b00000|  0%| F|  |TAMS 0x0000000085a00000, 0x0000000085a00000| Untracked 
+|   5|0x0000000085b00000, 0x0000000085b00000, 0x0000000085c00000|  0%| F|  |TAMS 0x0000000085b00000, 0x0000000085b00000| Untracked 
+|   6|0x0000000085c00000, 0x0000000085cc9f68, 0x0000000085d00000| 78%| E|CS|TAMS 0x0000000085c00000, 0x0000000085c00000| Complete 
+|   7|0x0000000085d00000, 0x0000000085d12820, 0x0000000085e00000|  7%| S|  |TAMS 0x0000000085d00000, 0x0000000085d00000| Complete 
+|   8|0x0000000085e00000, 0x0000000085f00000, 0x0000000085f00000|100%| E|CS|TAMS 0x0000000085e00000, 0x0000000085e00000| Complete 
+|   9|0x0000000085f00000, 0x0000000086000000, 0x0000000086000000|100%| E|CS|TAMS 0x0000000085f00000, 0x0000000085f00000| Complete 
+|  10|0x0000000086000000, 0x0000000086100000, 0x0000000086100000|100%| E|CS|TAMS 0x0000000086000000, 0x0000000086000000| Complete 
+|  11|0x0000000086100000, 0x0000000086200000, 0x0000000086200000|100%| E|CS|TAMS 0x0000000086100000, 0x0000000086100000| Complete 
+|1960|0x00000000ffe00000, 0x00000000ffe48000, 0x00000000fff00000| 28%|OA|  |TAMS 0x00000000ffe00000, 0x00000000ffe00000| Untracked 
+|1961|0x00000000fff00000, 0x00000000fff6c000, 0x0000000100000000| 42%|CA|  |TAMS 0x00000000fff00000, 0x00000000fff00000| Untracked 
+
+Card table byte_map: [0x00007ffffcb68000,0x00007ffffcf3d000] _byte_map_base: 0x00007ffffc73d000
+
+Marking Bits (Prev, Next): (CMBitMap*) 0x00007ffff8056fe8, (CMBitMap*) 0x00007ffff8057020
+ Prev Bits: [0x00007fffda158000, 0x00007fffdc000000)
+ Next Bits: [0x00007fffd82b0000, 0x00007fffda158000)
+
+Polling page: 0x00007fffff7c1000
+
+Metaspace:
+
+Usage:
+  Non-class:      6.57 MB capacity,     6.39 MB ( 97%) used,   155.77 KB (  2%) free+waste,    26.44 KB ( <1%) overhead. 
+      Class:    965.00 KB capacity,   819.42 KB ( 85%) used,   129.08 KB ( 13%) free+waste,    16.50 KB (  2%) overhead. 
+       Both:      7.51 MB capacity,     7.19 MB ( 96%) used,   284.85 KB (  4%) free+waste,    42.94 KB ( <1%) overhead. 
+
+Virtual space:
+  Non-class space:        8.00 MB reserved,       6.75 MB ( 84%) committed 
+      Class space:        1.00 GB reserved,       1.00 MB ( <1%) committed 
+             Both:        1.01 GB reserved,       7.75 MB ( <1%) committed 
+
+Chunk freelists:
+   Non-Class:  58.00 KB
+       Class:  27.00 KB
+        Both:  85.00 KB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+Initial GC threshold: 20.80 MB
+Current GC threshold: 20.80 MB
+CDS: on
+
+CodeHeap 'non-profiled nmethods': size=120032Kb used=683Kb max_used=683Kb free=119348Kb
+ bounds [0x00007fffe82a6000, 0x00007fffe8516000, 0x00007fffef7de000]
+CodeHeap 'profiled nmethods': size=120028Kb used=2480Kb max_used=2480Kb free=117547Kb
+ bounds [0x00007fffe0d6f000, 0x00007fffe0fdf000, 0x00007fffe82a6000]
+CodeHeap 'non-nmethods': size=5700Kb used=1162Kb max_used=1209Kb free=4537Kb
+ bounds [0x00007fffe07de000, 0x00007fffe0a4e000, 0x00007fffe0d6f000]
+ total_blobs=1671 nmethods=1245 adapters=340
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (20 events):
+Event: 1.217 Thread 0x00007ffff8195000 nmethod 1236 0x00007fffe0fc4090 code [0x00007fffe0fc4260, 0x00007fffe0fc4610]
+Event: 1.219 Thread 0x00007ffff8195000 1237       3       java.lang.String::<init> (10 bytes)
+Event: 1.219 Thread 0x00007ffff8195000 nmethod 1237 0x00007fffe0fc4710 code [0x00007fffe0fc48c0, 0x00007fffe0fc4a20]
+Event: 1.219 Thread 0x00007ffff8195000 1238       3       java.lang.String::<init> (55 bytes)
+Event: 1.219 Thread 0x00007ffff8195000 nmethod 1238 0x00007fffe0fc4b10 code [0x00007fffe0fc4d00, 0x00007fffe0fc5080]
+Event: 1.219 Thread 0x00007ffff8195000 1239   !   3       java.lang.StringCoding::decode (165 bytes)
+Event: 1.220 Thread 0x00007ffff8195000 nmethod 1239 0x00007fffe0fc5210 code [0x00007fffe0fc55c0, 0x00007fffe0fc6bc0]
+Event: 1.220 Thread 0x00007ffff8195000 1240       3       java.io.IOException::<init> (6 bytes)
+Event: 1.221 Thread 0x00007ffff8195000 nmethod 1240 0x00007fffe0fc7490 code [0x00007fffe0fc7660, 0x00007fffe0fc7800]
+Event: 1.232 Thread 0x00007fffa40ce000 1241       4       java.io.FileOutputStream::write (20 bytes)
+Event: 1.233 Thread 0x00007fffa40ce000 nmethod 1241 0x00007fffe834fe10 code [0x00007fffe834ffc0, 0x00007fffe8350068]
+Event: 1.243 Thread 0x00007fffa40d0000 1242       4       java.lang.Integer::stringSize (47 bytes)
+Event: 1.244 Thread 0x00007fffa40d0000 nmethod 1242 0x00007fffe8350190 code [0x00007fffe8350320, 0x00007fffe83503d8]
+Event: 1.252 Thread 0x00007ffff8193000 1243       4       java.lang.ThreadLocal::get (38 bytes)
+Event: 1.252 Thread 0x00007fffa40ce000 1244       4       java.nio.charset.Charset::lookup (44 bytes)
+Event: 1.252 Thread 0x00007ffff8195000 1245 % !   3       mars.simulator.Simulator$SimThread::construct @ 191 (905 bytes)
+Event: 1.253 Thread 0x00007fffa40d0000 1246   !   4       mars.mips.instructions.syscalls.SyscallPrintString::simulate (66 bytes)
+Event: 1.253 Thread 0x00007ffff8193000 nmethod 1243 0x00007fffe8350490 code [0x00007fffe8350640, 0x00007fffe83507d8]
+Event: 1.254 Thread 0x00007fffa40ce000 nmethod 1244 0x00007fffe8350990 code [0x00007fffe8350b40, 0x00007fffe8350d98]
+Event: 1.260 Thread 0x00007ffff8195000 nmethod 1245% 0x00007fffe0fc7910 code [0x00007fffe0fc8ba0, 0x00007fffe0fd6770]
+
+GC Heap History (17 events):
+Event: 0.360 GC heap before
+{Heap before GC invocations=0 (full 0):
+ garbage-first heap   total 129024K, used 1744K [0x0000000085600000, 0x0000000100000000)
+  region size 1024K, 2 young (2048K), 0 survivors (0K)
+ Metaspace       used 566K, capacity 4623K, committed 4864K, reserved 1056768K
+  class space    used 41K, capacity 393K, committed 512K, reserved 1048576K
+}
+Event: 0.385 GC heap after
+{Heap after GC invocations=1 (full 1):
+ garbage-first heap   total 14336K, used 1268K [0x0000000085600000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 566K, capacity 4623K, committed 4864K, reserved 1056768K
+  class space    used 41K, capacity 393K, committed 512K, reserved 1048576K
+}
+Event: 0.583 GC heap before
+{Heap before GC invocations=1 (full 1):
+ garbage-first heap   total 14336K, used 5364K [0x0000000085600000, 0x0000000100000000)
+  region size 1024K, 4 young (4096K), 0 survivors (0K)
+ Metaspace       used 1375K, capacity 5116K, committed 5376K, reserved 1056768K
+  class space    used 149K, capacity 493K, committed 512K, reserved 1048576K
+}
+Event: 0.591 GC heap after
+{Heap after GC invocations=2 (full 1):
+ garbage-first heap   total 14336K, used 1580K [0x0000000085600000, 0x0000000100000000)
+  region size 1024K, 1 young (1024K), 1 survivors (1024K)
+ Metaspace       used 1375K, capacity 5116K, committed 5376K, reserved 1056768K
+  class space    used 149K, capacity 493K, committed 512K, reserved 1048576K
+}
+Event: 0.678 GC heap before
+{Heap before GC invocations=2 (full 1):
+ garbage-first heap   total 14336K, used 6700K [0x0000000085600000, 0x0000000100000000)
+  region size 1024K, 6 young (6144K), 1 survivors (1024K)
+ Metaspace       used 1745K, capacity 5281K, committed 5504K, reserved 1056768K
+  class space    used 196K, capacity 527K, committed 640K, reserved 1048576K
+}
+Event: 0.679 GC heap after
+{Heap after GC invocations=3 (full 1):
+ garbage-first heap   total 14336K, used 1961K [0x0000000085600000, 0x0000000100000000)
+  region size 1024K, 1 young (1024K), 1 survivors (1024K)
+ Metaspace       used 1745K, capacity 5281K, committed 5504K, reserved 1056768K
+  class space    used 196K, capacity 527K, committed 640K, reserved 1048576K
+}
+Event: 0.697 GC heap before
+{Heap before GC invocations=3 (full 1):
+ garbage-first heap   total 14336K, used 6057K [0x0000000085600000, 0x0000000100000000)
+  region size 1024K, 5 young (5120K), 1 survivors (1024K)
+ Metaspace       used 1746K, capacity 5281K, committed 5504K, reserved 1056768K
+  class space    used 196K, capacity 527K, committed 640K, reserved 1048576K
+}
+Event: 0.701 GC heap after
+{Heap after GC invocations=4 (full 1):
+ garbage-first heap   total 14336K, used 2056K [0x0000000085600000, 0x0000000100000000)
+  region size 1024K, 1 young (1024K), 1 survivors (1024K)
+ Metaspace       used 1746K, capacity 5281K, committed 5504K, reserved 1056768K
+  class space    used 196K, capacity 527K, committed 640K, reserved 1048576K
+}
+Event: 0.857 GC heap before
+{Heap before GC invocations=4 (full 1):
+ garbage-first heap   total 14336K, used 6152K [0x0000000085600000, 0x0000000100000000)
+  region size 1024K, 5 young (5120K), 1 survivors (1024K)
+ Metaspace       used 2652K, capacity 5552K, committed 5760K, reserved 1056768K
+  class space    used 295K, capacity 602K, committed 640K, reserved 1048576K
+}
+Event: 0.859 GC heap after
+{Heap after GC invocations=5 (full 1):
+ garbage-first heap   total 14336K, used 2414K [0x0000000085600000, 0x0000000100000000)
+  region size 1024K, 1 young (1024K), 1 survivors (1024K)
+ Metaspace       used 2652K, capacity 5552K, committed 5760K, reserved 1056768K
+  class space    used 295K, capacity 602K, committed 640K, reserved 1048576K
+}
+Event: 0.889 GC heap before
+{Heap before GC invocations=5 (full 1):
+ garbage-first heap   total 14336K, used 2414K [0x0000000085600000, 0x0000000100000000)
+  region size 1024K, 2 young (2048K), 1 survivors (1024K)
+ Metaspace       used 4151K, capacity 5605K, committed 5888K, reserved 1056768K
+  class space    used 452K, capacity 641K, committed 768K, reserved 1048576K
+}
+Event: 0.896 GC heap after
+{Heap after GC invocations=6 (full 2):
+ garbage-first heap   total 14336K, used 2407K [0x0000000085600000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 4151K, capacity 5605K, committed 5888K, reserved 1056768K
+  class space    used 452K, capacity 641K, committed 768K, reserved 1048576K
+}
+Event: 0.946 GC heap before
+{Heap before GC invocations=6 (full 2):
+ garbage-first heap   total 14336K, used 5479K [0x0000000085600000, 0x0000000100000000)
+  region size 1024K, 4 young (4096K), 0 survivors (0K)
+ Metaspace       used 4223K, capacity 5669K, committed 5888K, reserved 1056768K
+  class space    used 456K, capacity 641K, committed 768K, reserved 1048576K
+}
+Event: 0.952 GC heap after
+{Heap after GC invocations=7 (full 3):
+ garbage-first heap   total 14336K, used 2546K [0x0000000085600000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 4223K, capacity 5669K, committed 5888K, reserved 1056768K
+  class space    used 456K, capacity 641K, committed 768K, reserved 1048576K
+}
+Event: 1.168 GC heap before
+{Heap before GC invocations=7 (full 3):
+ garbage-first heap   total 14336K, used 7666K [0x0000000085600000, 0x0000000100000000)
+  region size 1024K, 5 young (5120K), 0 survivors (0K)
+ Metaspace       used 7332K, capacity 7627K, committed 7936K, reserved 1056768K
+  class space    used 818K, capacity 965K, committed 1024K, reserved 1048576K
+}
+Event: 1.173 GC heap after
+{Heap after GC invocations=8 (full 3):
+ garbage-first heap   total 14336K, used 3353K [0x0000000085600000, 0x0000000100000000)
+  region size 1024K, 1 young (1024K), 1 survivors (1024K)
+ Metaspace       used 7332K, capacity 7627K, committed 7936K, reserved 1056768K
+  class space    used 818K, capacity 965K, committed 1024K, reserved 1048576K
+}
+Event: 1.261 GC heap before
+{Heap before GC invocations=8 (full 3):
+ garbage-first heap   total 14336K, used 7449K [0x0000000085600000, 0x0000000100000000)
+  region size 1024K, 5 young (5120K), 1 survivors (1024K)
+ Metaspace       used 7363K, capacity 7691K, committed 7936K, reserved 1056768K
+  class space    used 819K, capacity 965K, committed 1024K, reserved 1048576K
+}
+
+Deoptimization events (20 events):
+Event: 1.071 Thread 0x00007ffff85e1000 Uncommon trap: trap_request=0xffffff4d fr.pc=0x00007fffe82c71bc relative=0x000000000000011c
+Event: 1.071 Thread 0x00007ffff85e1000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007fffe82c71bc method=java.lang.String.startsWith(Ljava/lang/String;I)Z @ 1 c2
+Event: 1.071 Thread 0x00007ffff85e1000 DEOPT PACKING pc=0x00007fffe82c71bc sp=0x00007fffd0b270f0
+Event: 1.071 Thread 0x00007ffff85e1000 DEOPT UNPACKING pc=0x00007fffe0827e9f sp=0x00007fffd0b27080 mode 2
+Event: 1.210 Thread 0x00007ffff85e1000 Uncommon trap: trap_request=0xffffff4d fr.pc=0x00007fffe8340678 relative=0x0000000000000c58
+Event: 1.210 Thread 0x00007ffff85e1000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007fffe8340678 method=java.io.BufferedOutputStream.write([BII)V @ 35 c2
+Event: 1.210 Thread 0x00007ffff85e1000 DEOPT PACKING pc=0x00007fffe8340678 sp=0x00007fffd0b275e0
+Event: 1.210 Thread 0x00007ffff85e1000 DEOPT UNPACKING pc=0x00007fffe0827e9f sp=0x00007fffd0b273d8 mode 2
+Event: 1.210 Thread 0x00007ffff85e1000 Uncommon trap: trap_request=0xffffff4d fr.pc=0x00007fffe8345578 relative=0x00000000000009f8
+Event: 1.210 Thread 0x00007ffff85e1000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007fffe8345578 method=java.io.BufferedOutputStream.write([BII)V @ 35 c2
+Event: 1.210 Thread 0x00007ffff85e1000 DEOPT PACKING pc=0x00007fffe8345578 sp=0x00007fffd0b27510
+Event: 1.210 Thread 0x00007ffff85e1000 DEOPT UNPACKING pc=0x00007fffe0827e9f sp=0x00007fffd0b273f0 mode 2
+Event: 1.211 Thread 0x00007ffff85e1000 Uncommon trap: trap_request=0xffffff4d fr.pc=0x00007fffe83441a8 relative=0x00000000000007c8
+Event: 1.211 Thread 0x00007ffff85e1000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007fffe83441a8 method=java.io.BufferedOutputStream.write([BII)V @ 35 c2
+Event: 1.211 Thread 0x00007ffff85e1000 DEOPT PACKING pc=0x00007fffe83441a8 sp=0x00007fffd0b27490
+Event: 1.211 Thread 0x00007ffff85e1000 DEOPT UNPACKING pc=0x00007fffe0827e9f sp=0x00007fffd0b273f0 mode 2
+Event: 1.211 Thread 0x00007ffff85e1000 Uncommon trap: trap_request=0xffffff4d fr.pc=0x00007fffe8343638 relative=0x00000000000002f8
+Event: 1.211 Thread 0x00007ffff85e1000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007fffe8343638 method=java.io.BufferedOutputStream.write([BII)V @ 35 c2
+Event: 1.211 Thread 0x00007ffff85e1000 DEOPT PACKING pc=0x00007fffe8343638 sp=0x00007fffd0b27420
+Event: 1.211 Thread 0x00007ffff85e1000 DEOPT UNPACKING pc=0x00007fffe0827e9f sp=0x00007fffd0b273e8 mode 2
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (20 events):
+Event: 1.261 Thread 0x00007ffff85e1000 Exception <a 'java/io/IOException'{0x0000000085efb5f0}> (0x0000000085efb5f0) thrown at [./src/hotspot/share/prims/jni.cpp, line 617]
+Event: 1.261 Thread 0x00007ffff85e1000 Exception <a 'java/io/IOException'{0x0000000085efb988}> (0x0000000085efb988) thrown at [./src/hotspot/share/prims/jni.cpp, line 617]
+Event: 1.261 Thread 0x00007ffff85e1000 Exception <a 'java/io/IOException'{0x0000000085efbd20}> (0x0000000085efbd20) thrown at [./src/hotspot/share/prims/jni.cpp, line 617]
+Event: 1.261 Thread 0x00007ffff85e1000 Exception <a 'java/io/IOException'{0x0000000085efc0b8}> (0x0000000085efc0b8) thrown at [./src/hotspot/share/prims/jni.cpp, line 617]
+Event: 1.261 Thread 0x00007ffff85e1000 Exception <a 'java/io/IOException'{0x0000000085efc450}> (0x0000000085efc450) thrown at [./src/hotspot/share/prims/jni.cpp, line 617]
+Event: 1.261 Thread 0x00007ffff85e1000 Exception <a 'java/io/IOException'{0x0000000085efc778}> (0x0000000085efc778) thrown at [./src/hotspot/share/prims/jni.cpp, line 617]
+Event: 1.261 Thread 0x00007ffff85e1000 Exception <a 'java/io/IOException'{0x0000000085efcb10}> (0x0000000085efcb10) thrown at [./src/hotspot/share/prims/jni.cpp, line 617]
+Event: 1.261 Thread 0x00007ffff85e1000 Exception <a 'java/io/IOException'{0x0000000085efcea8}> (0x0000000085efcea8) thrown at [./src/hotspot/share/prims/jni.cpp, line 617]
+Event: 1.261 Thread 0x00007ffff85e1000 Exception <a 'java/io/IOException'{0x0000000085efd240}> (0x0000000085efd240) thrown at [./src/hotspot/share/prims/jni.cpp, line 617]
+Event: 1.261 Thread 0x00007ffff85e1000 Exception <a 'java/io/IOException'{0x0000000085efd5d8}> (0x0000000085efd5d8) thrown at [./src/hotspot/share/prims/jni.cpp, line 617]
+Event: 1.261 Thread 0x00007ffff85e1000 Exception <a 'java/io/IOException'{0x0000000085efd970}> (0x0000000085efd970) thrown at [./src/hotspot/share/prims/jni.cpp, line 617]
+Event: 1.261 Thread 0x00007ffff85e1000 Exception <a 'java/io/IOException'{0x0000000085efdd08}> (0x0000000085efdd08) thrown at [./src/hotspot/share/prims/jni.cpp, line 617]
+Event: 1.261 Thread 0x00007ffff85e1000 Exception <a 'java/io/IOException'{0x0000000085efe0a0}> (0x0000000085efe0a0) thrown at [./src/hotspot/share/prims/jni.cpp, line 617]
+Event: 1.261 Thread 0x00007ffff85e1000 Exception <a 'java/io/IOException'{0x0000000085efe438}> (0x0000000085efe438) thrown at [./src/hotspot/share/prims/jni.cpp, line 617]
+Event: 1.261 Thread 0x00007ffff85e1000 Exception <a 'java/io/IOException'{0x0000000085efe7d0}> (0x0000000085efe7d0) thrown at [./src/hotspot/share/prims/jni.cpp, line 617]
+Event: 1.261 Thread 0x00007ffff85e1000 Exception <a 'java/io/IOException'{0x0000000085efeb68}> (0x0000000085efeb68) thrown at [./src/hotspot/share/prims/jni.cpp, line 617]
+Event: 1.261 Thread 0x00007ffff85e1000 Exception <a 'java/io/IOException'{0x0000000085efef00}> (0x0000000085efef00) thrown at [./src/hotspot/share/prims/jni.cpp, line 617]
+Event: 1.261 Thread 0x00007ffff85e1000 Exception <a 'java/io/IOException'{0x0000000085eff298}> (0x0000000085eff298) thrown at [./src/hotspot/share/prims/jni.cpp, line 617]
+Event: 1.261 Thread 0x00007ffff85e1000 Exception <a 'java/io/IOException'{0x0000000085eff630}> (0x0000000085eff630) thrown at [./src/hotspot/share/prims/jni.cpp, line 617]
+Event: 1.261 Thread 0x00007ffff85e1000 Exception <a 'java/io/IOException'{0x0000000085eff9c8}> (0x0000000085eff9c8) thrown at [./src/hotspot/share/prims/jni.cpp, line 617]
+
+Events (20 events):
+Event: 1.088 Executing VM operation: RevokeBias done
+Event: 1.088 loading class mars/simulator/DelayedBranch
+Event: 1.088 loading class mars/simulator/DelayedBranch done
+Event: 1.090 Executing VM operation: RevokeBias
+Event: 1.090 Executing VM operation: RevokeBias done
+Event: 1.096 loading class mars/venus/VenusUI
+Event: 1.096 loading class mars/venus/VenusUI done
+Event: 1.098 loading class javax/swing/JFrame
+Event: 1.098 loading class javax/swing/WindowConstants
+Event: 1.098 loading class javax/swing/WindowConstants done
+Event: 1.098 loading class javax/swing/RootPaneContainer
+Event: 1.098 loading class javax/swing/RootPaneContainer done
+Event: 1.098 loading class java/awt/Frame
+Event: 1.098 loading class java/awt/Frame done
+Event: 1.098 loading class javax/swing/JFrame done
+Event: 1.168 Executing VM operation: G1CollectForAllocation
+Event: 1.173 Executing VM operation: G1CollectForAllocation done
+Event: 1.207 loading class java/io/InterruptedIOException
+Event: 1.207 loading class java/io/InterruptedIOException done
+Event: 1.261 Executing VM operation: G1CollectForAllocation
+
+
+Dynamic libraries:
+85600000-86200000 rw-p 00000000 00:00 0 
+86200000-ffe00000 ---p 00000000 00:00 0 
+ffe00000-ffe48000 rw-p 00b12000 fe:01 2890964                            /usr/lib/jvm/java-11-openjdk-amd64/lib/server/classes.jsa
+ffe48000-fff00000 rw-p 00000000 00:00 0 
+fff00000-fff6c000 rw-p 00aa6000 fe:01 2890964                            /usr/lib/jvm/java-11-openjdk-amd64/lib/server/classes.jsa
+fff6c000-100000000 rw-p 00000000 00:00 0 
+800000000-800002000 r-xp 00001000 fe:01 2890964                          /usr/lib/jvm/java-11-openjdk-amd64/lib/server/classes.jsa
+800002000-8003ce000 rw-p 00003000 fe:01 2890964                          /usr/lib/jvm/java-11-openjdk-amd64/lib/server/classes.jsa
+8003ce000-800aa4000 r--p 003cf000 fe:01 2890964                          /usr/lib/jvm/java-11-openjdk-amd64/lib/server/classes.jsa
+800aa4000-800aa5000 rw-p 00aa5000 fe:01 2890964                          /usr/lib/jvm/java-11-openjdk-amd64/lib/server/classes.jsa
+840000000-840100000 rw-p 00000000 00:00 0 
+840100000-880000000 ---p 00000000 00:00 0 
+555555554000-555555555000 r--p 00000000 fe:01 2890703                    /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+555555555000-555555556000 r-xp 00001000 fe:01 2890703                    /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+555555556000-555555557000 r--p 00002000 fe:01 2890703                    /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+555555557000-555555558000 r--p 00002000 fe:01 2890703                    /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+555555558000-555555559000 rw-p 00003000 fe:01 2890703                    /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+555555559000-55555557a000 rw-p 00000000 00:00 0 
+7fff64000000-7fff64154000 rw-p 00000000 00:00 0 
+7fff64154000-7fff68000000 ---p 00000000 00:00 0 
+7fff6c000000-7fff6c021000 rw-p 00000000 00:00 0 
+7fff6c021000-7fff70000000 ---p 00000000 00:00 0 
+7fff70000000-7fff70021000 rw-p 00000000 00:00 0 
+7fff70021000-7fff74000000 ---p 00000000 00:00 0 
+7fff74000000-7fff74021000 rw-p 00000000 00:00 0 
+7fff74021000-7fff78000000 ---p 00000000 00:00 0 
+7fff78000000-7fff78021000 rw-p 00000000 00:00 0 
+7fff78021000-7fff7c000000 ---p 00000000 00:00 0 
+7fff7c000000-7fff7c021000 rw-p 00000000 00:00 0 
+7fff7c021000-7fff80000000 ---p 00000000 00:00 0 
+7fff80000000-7fff80021000 rw-p 00000000 00:00 0 
+7fff80021000-7fff84000000 ---p 00000000 00:00 0 
+7fff84000000-7fff84021000 rw-p 00000000 00:00 0 
+7fff84021000-7fff88000000 ---p 00000000 00:00 0 
+7fff88000000-7fff882d9000 rw-p 00000000 00:00 0 
+7fff882d9000-7fff8c000000 ---p 00000000 00:00 0 
+7fff8c000000-7fff8c021000 rw-p 00000000 00:00 0 
+7fff8c021000-7fff90000000 ---p 00000000 00:00 0 
+7fff90000000-7fff90021000 rw-p 00000000 00:00 0 
+7fff90021000-7fff94000000 ---p 00000000 00:00 0 
+7fff94000000-7fff9510a000 rw-p 00000000 00:00 0 
+7fff9510a000-7fff98000000 ---p 00000000 00:00 0 
+7fff98000000-7fff98e4c000 rw-p 00000000 00:00 0 
+7fff98e4c000-7fff9c000000 ---p 00000000 00:00 0 
+7fff9c000000-7fff9c021000 rw-p 00000000 00:00 0 
+7fff9c021000-7fffa0000000 ---p 00000000 00:00 0 
+7fffa0000000-7fffa0021000 rw-p 00000000 00:00 0 
+7fffa0021000-7fffa4000000 ---p 00000000 00:00 0 
+7fffa4000000-7fffa45a0000 rw-p 00000000 00:00 0 
+7fffa45a0000-7fffa8000000 ---p 00000000 00:00 0 
+7fffa8000000-7fffa8021000 rw-p 00000000 00:00 0 
+7fffa8021000-7fffac000000 ---p 00000000 00:00 0 
+7fffac000000-7fffac021000 rw-p 00000000 00:00 0 
+7fffac021000-7fffb0000000 ---p 00000000 00:00 0 
+7fffb0000000-7fffb0f9b000 rw-p 00000000 00:00 0 
+7fffb0f9b000-7fffb4000000 ---p 00000000 00:00 0 
+7fffb4000000-7fffb4021000 rw-p 00000000 00:00 0 
+7fffb4021000-7fffb8000000 ---p 00000000 00:00 0 
+7fffb8000000-7fffb8021000 rw-p 00000000 00:00 0 
+7fffb8021000-7fffbc000000 ---p 00000000 00:00 0 
+7fffbc000000-7fffbc30f000 rw-p 00000000 00:00 0 
+7fffbc30f000-7fffc0000000 ---p 00000000 00:00 0 
+7fffc0000000-7fffc0021000 rw-p 00000000 00:00 0 
+7fffc0021000-7fffc4000000 ---p 00000000 00:00 0 
+7fffc4000000-7fffc4021000 rw-p 00000000 00:00 0 
+7fffc4021000-7fffc8000000 ---p 00000000 00:00 0 
+7fffc8000000-7fffc8021000 rw-p 00000000 00:00 0 
+7fffc8021000-7fffcc000000 ---p 00000000 00:00 0 
+7fffcc000000-7fffcc021000 rw-p 00000000 00:00 0 
+7fffcc021000-7fffd0000000 ---p 00000000 00:00 0 
+7fffd00bb000-7fffd0324000 rw-p 00000000 00:00 0 
+7fffd0324000-7fffd0325000 ---p 00000000 00:00 0 
+7fffd0325000-7fffd0425000 rw-p 00000000 00:00 0 
+7fffd0425000-7fffd0426000 ---p 00000000 00:00 0 
+7fffd0426000-7fffd0526000 rw-p 00000000 00:00 0 
+7fffd0526000-7fffd0527000 ---p 00000000 00:00 0 
+7fffd0527000-7fffd0627000 rw-p 00000000 00:00 0 
+7fffd0627000-7fffd0628000 ---p 00000000 00:00 0 
+7fffd0628000-7fffd0728000 rw-p 00000000 00:00 0 
+7fffd0728000-7fffd0729000 ---p 00000000 00:00 0 
+7fffd0729000-7fffd0829000 rw-p 00000000 00:00 0 
+7fffd0829000-7fffd082d000 ---p 00000000 00:00 0 
+7fffd082d000-7fffd0929000 rw-p 00000000 00:00 0 
+7fffd0929000-7fffd092d000 ---p 00000000 00:00 0 
+7fffd092d000-7fffd0a29000 rw-p 00000000 00:00 0 
+7fffd0a29000-7fffd0a2d000 ---p 00000000 00:00 0 
+7fffd0a2d000-7fffd0b29000 rw-p 00000000 00:00 0 
+7fffd0b29000-7fffd0b55000 r--p 00000000 fe:01 2890922                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libawt.so
+7fffd0b55000-7fffd0bbf000 r-xp 0002c000 fe:01 2890922                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libawt.so
+7fffd0bbf000-7fffd0bcc000 r--p 00096000 fe:01 2890922                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libawt.so
+7fffd0bcc000-7fffd0bcd000 r--p 000a2000 fe:01 2890922                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libawt.so
+7fffd0bcd000-7fffd0bd8000 rw-p 000a3000 fe:01 2890922                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libawt.so
+7fffd0bd8000-7fffd0bfd000 rw-p 00000000 00:00 0 
+7fffd0bfd000-7fffd0c01000 ---p 00000000 00:00 0 
+7fffd0c01000-7fffd0cfd000 rw-p 00000000 00:00 0 
+7fffd0cfd000-7fffd0cfe000 ---p 00000000 00:00 0 
+7fffd0cfe000-7fffd0dfe000 rw-p 00000000 00:00 0 
+7fffd0dfe000-7fffd0dff000 ---p 00000000 00:00 0 
+7fffd0dff000-7fffd0eff000 rw-p 00000000 00:00 0 
+7fffd0eff000-7fffd0f03000 ---p 00000000 00:00 0 
+7fffd0f03000-7fffd0fff000 rw-p 00000000 00:00 0 
+7fffd0fff000-7fffd1003000 ---p 00000000 00:00 0 
+7fffd1003000-7fffd10ff000 rw-p 00000000 00:00 0 
+7fffd10ff000-7fffd1103000 ---p 00000000 00:00 0 
+7fffd1103000-7fffd11ff000 rw-p 00000000 00:00 0 
+7fffd11ff000-7fffd1200000 ---p 00000000 00:00 0 
+7fffd1200000-7fffd1300000 rw-p 00000000 00:00 0 
+7fffd1300000-7fffd1304000 ---p 00000000 00:00 0 
+7fffd1304000-7fffd1400000 rw-p 00000000 00:00 0 
+7fffd1400000-7fffd1404000 ---p 00000000 00:00 0 
+7fffd1404000-7fffd1500000 rw-p 00000000 00:00 0 
+7fffd1500000-7fffd1504000 ---p 00000000 00:00 0 
+7fffd1504000-7fffd1600000 rw-p 00000000 00:00 0 
+7fffd1600000-7fffd1604000 ---p 00000000 00:00 0 
+7fffd1604000-7fffd1700000 rw-p 00000000 00:00 0 
+7fffd1700000-7fffd1704000 ---p 00000000 00:00 0 
+7fffd1704000-7fffd1ec0000 rw-p 00000000 00:00 0 
+7fffd1ec0000-7fffd2000000 ---p 00000000 00:00 0 
+7fffd2000000-7fffd4000000 rw-p 00000000 00:00 0 
+7fffd4000000-7fffd4021000 rw-p 00000000 00:00 0 
+7fffd4021000-7fffd8000000 ---p 00000000 00:00 0 
+7fffd80b0000-7fffd80b4000 ---p 00000000 00:00 0 
+7fffd80b4000-7fffd81b0000 rw-p 00000000 00:00 0 
+7fffd81b0000-7fffd81b4000 ---p 00000000 00:00 0 
+7fffd81b4000-7fffd82e0000 rw-p 00000000 00:00 0 
+7fffd82e0000-7fffda150000 ---p 00000000 00:00 0 
+7fffda150000-7fffda188000 rw-p 00000000 00:00 0 
+7fffda188000-7fffdbff8000 ---p 00000000 00:00 0 
+7fffdbff8000-7fffdc000000 rw-p 00000000 00:00 0 
+7fffdc000000-7fffdc021000 rw-p 00000000 00:00 0 
+7fffdc021000-7fffe0000000 ---p 00000000 00:00 0 
+7fffe00c5000-7fffe00c8000 r--p 00000000 fe:01 2890923                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libawt_headless.so
+7fffe00c8000-7fffe00cc000 r-xp 00003000 fe:01 2890923                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libawt_headless.so
+7fffe00cc000-7fffe00ce000 r--p 00007000 fe:01 2890923                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libawt_headless.so
+7fffe00ce000-7fffe00cf000 r--p 00008000 fe:01 2890923                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libawt_headless.so
+7fffe00cf000-7fffe00d0000 rw-p 00009000 fe:01 2890923                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libawt_headless.so
+7fffe00d0000-7fffe00d4000 r--p 00000000 fe:01 2890943                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libnet.so
+7fffe00d4000-7fffe00e2000 r-xp 00004000 fe:01 2890943                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libnet.so
+7fffe00e2000-7fffe00e6000 r--p 00012000 fe:01 2890943                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libnet.so
+7fffe00e6000-7fffe00e7000 r--p 00015000 fe:01 2890943                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libnet.so
+7fffe00e7000-7fffe00e8000 rw-p 00016000 fe:01 2890943                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libnet.so
+7fffe00e8000-7fffe00ef000 r--p 00000000 fe:01 2890944                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libnio.so
+7fffe00ef000-7fffe00f7000 r-xp 00007000 fe:01 2890944                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libnio.so
+7fffe00f7000-7fffe00fa000 r--p 0000f000 fe:01 2890944                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libnio.so
+7fffe00fa000-7fffe00fb000 r--p 00011000 fe:01 2890944                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libnio.so
+7fffe00fb000-7fffe00fc000 rw-p 00012000 fe:01 2890944                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libnio.so
+7fffe00fc000-7fffe00fd000 ---p 00000000 00:00 0 
+7fffe00fd000-7fffe02d9000 rw-p 00000000 00:00 0 
+7fffe02d9000-7fffe02da000 ---p 00000000 00:00 0 
+7fffe02da000-7fffe03da000 rw-p 00000000 00:00 0 
+7fffe03da000-7fffe03db000 ---p 00000000 00:00 0 
+7fffe03db000-7fffe07de000 rw-p 00000000 00:00 0 
+7fffe07de000-7fffe07e0000 r-xp 00000000 00:00 0 
+7fffe07e0000-7fffe07e6000 rwxp 00000000 00:00 0 
+7fffe07e6000-7fffe07e9000 r-xp 00000000 00:00 0 
+7fffe07e9000-7fffe07ea000 rwxp 00000000 00:00 0 
+7fffe07ea000-7fffe0800000 r-xp 00000000 00:00 0 
+7fffe0800000-7fffe0803000 rwxp 00000000 00:00 0 
+7fffe0803000-7fffe0804000 r-xp 00000000 00:00 0 
+7fffe0804000-7fffe080c000 rwxp 00000000 00:00 0 
+7fffe080c000-7fffe080d000 r-xp 00000000 00:00 0 
+7fffe080d000-7fffe080f000 rwxp 00000000 00:00 0 
+7fffe080f000-7fffe0812000 r-xp 00000000 00:00 0 
+7fffe0812000-7fffe0813000 rwxp 00000000 00:00 0 
+7fffe0813000-7fffe0814000 r-xp 00000000 00:00 0 
+7fffe0814000-7fffe0815000 rwxp 00000000 00:00 0 
+7fffe0815000-7fffe081b000 r-xp 00000000 00:00 0 
+7fffe081b000-7fffe081c000 rwxp 00000000 00:00 0 
+7fffe081c000-7fffe0824000 r-xp 00000000 00:00 0 
+7fffe0824000-7fffe0827000 rwxp 00000000 00:00 0 
+7fffe0827000-7fffe082b000 r-xp 00000000 00:00 0 
+7fffe082b000-7fffe082d000 rwxp 00000000 00:00 0 
+7fffe082d000-7fffe082e000 r-xp 00000000 00:00 0 
+7fffe082e000-7fffe0835000 rwxp 00000000 00:00 0 
+7fffe0835000-7fffe0836000 r-xp 00000000 00:00 0 
+7fffe0836000-7fffe083f000 rwxp 00000000 00:00 0 
+7fffe083f000-7fffe0841000 r-xp 00000000 00:00 0 
+7fffe0841000-7fffe08cf000 rwxp 00000000 00:00 0 
+7fffe08cf000-7fffe08d8000 r-xp 00000000 00:00 0 
+7fffe08d8000-7fffe08d9000 rwxp 00000000 00:00 0 
+7fffe08d9000-7fffe08de000 r-xp 00000000 00:00 0 
+7fffe08de000-7fffe08e0000 rwxp 00000000 00:00 0 
+7fffe08e0000-7fffe08e1000 r-xp 00000000 00:00 0 
+7fffe08e1000-7fffe08e4000 rwxp 00000000 00:00 0 
+7fffe08e4000-7fffe08e6000 r-xp 00000000 00:00 0 
+7fffe08e6000-7fffe08e9000 rwxp 00000000 00:00 0 
+7fffe08e9000-7fffe08ec000 r-xp 00000000 00:00 0 
+7fffe08ec000-7fffe08f4000 rwxp 00000000 00:00 0 
+7fffe08f4000-7fffe08f5000 r-xp 00000000 00:00 0 
+7fffe08f5000-7fffe0a4e000 rwxp 00000000 00:00 0 
+7fffe0a4e000-7fffe0d6f000 ---p 00000000 00:00 0 
+7fffe0d6f000-7fffe0d75000 r-xp 00000000 00:00 0 
+7fffe0d75000-7fffe0d76000 rwxp 00000000 00:00 0 
+7fffe0d76000-7fffe0d7a000 r-xp 00000000 00:00 0 
+7fffe0d7a000-7fffe0d7f000 rwxp 00000000 00:00 0 
+7fffe0d7f000-7fffe0d80000 r-xp 00000000 00:00 0 
+7fffe0d80000-7fffe0d83000 rwxp 00000000 00:00 0 
+7fffe0d83000-7fffe0d85000 r-xp 00000000 00:00 0 
+7fffe0d85000-7fffe0d86000 rwxp 00000000 00:00 0 
+7fffe0d86000-7fffe0d87000 r-xp 00000000 00:00 0 
+7fffe0d87000-7fffe0d89000 rwxp 00000000 00:00 0 
+7fffe0d89000-7fffe0d8c000 r-xp 00000000 00:00 0 
+7fffe0d8c000-7fffe0d8d000 rwxp 00000000 00:00 0 
+7fffe0d8d000-7fffe0d8e000 r-xp 00000000 00:00 0 
+7fffe0d8e000-7fffe0d8f000 rwxp 00000000 00:00 0 
+7fffe0d8f000-7fffe0d90000 r-xp 00000000 00:00 0 
+7fffe0d90000-7fffe0d93000 rwxp 00000000 00:00 0 
+7fffe0d93000-7fffe0d94000 r-xp 00000000 00:00 0 
+7fffe0d94000-7fffe0d96000 rwxp 00000000 00:00 0 
+7fffe0d96000-7fffe0d98000 r-xp 00000000 00:00 0 
+7fffe0d98000-7fffe0d99000 rwxp 00000000 00:00 0 
+7fffe0d99000-7fffe0d9f000 r-xp 00000000 00:00 0 
+7fffe0d9f000-7fffe0da2000 rwxp 00000000 00:00 0 
+7fffe0da2000-7fffe0da3000 r-xp 00000000 00:00 0 
+7fffe0da3000-7fffe0da5000 rwxp 00000000 00:00 0 
+7fffe0da5000-7fffe0da6000 r-xp 00000000 00:00 0 
+7fffe0da6000-7fffe0da7000 rwxp 00000000 00:00 0 
+7fffe0da7000-7fffe0da9000 r-xp 00000000 00:00 0 
+7fffe0da9000-7fffe0dae000 rwxp 00000000 00:00 0 
+7fffe0dae000-7fffe0daf000 r-xp 00000000 00:00 0 
+7fffe0daf000-7fffe0db0000 rwxp 00000000 00:00 0 
+7fffe0db0000-7fffe0db1000 r-xp 00000000 00:00 0 
+7fffe0db1000-7fffe0db6000 rwxp 00000000 00:00 0 
+7fffe0db6000-7fffe0db8000 r-xp 00000000 00:00 0 
+7fffe0db8000-7fffe0dba000 rwxp 00000000 00:00 0 
+7fffe0dba000-7fffe0dbe000 r-xp 00000000 00:00 0 
+7fffe0dbe000-7fffe0dbf000 rwxp 00000000 00:00 0 
+7fffe0dbf000-7fffe0dc8000 r-xp 00000000 00:00 0 
+7fffe0dc8000-7fffe0dca000 rwxp 00000000 00:00 0 
+7fffe0dca000-7fffe0dcb000 r-xp 00000000 00:00 0 
+7fffe0dcb000-7fffe0dcd000 rwxp 00000000 00:00 0 
+7fffe0dcd000-7fffe0dce000 r-xp 00000000 00:00 0 
+7fffe0dce000-7fffe0dd1000 rwxp 00000000 00:00 0 
+7fffe0dd1000-7fffe0dd2000 r-xp 00000000 00:00 0 
+7fffe0dd2000-7fffe0dd3000 rwxp 00000000 00:00 0 
+7fffe0dd3000-7fffe0dd6000 r-xp 00000000 00:00 0 
+7fffe0dd6000-7fffe0dd9000 rwxp 00000000 00:00 0 
+7fffe0dd9000-7fffe0ddb000 r-xp 00000000 00:00 0 
+7fffe0ddb000-7fffe0ddf000 rwxp 00000000 00:00 0 
+7fffe0ddf000-7fffe0de0000 r-xp 00000000 00:00 0 
+7fffe0de0000-7fffe0de2000 rwxp 00000000 00:00 0 
+7fffe0de2000-7fffe0de5000 r-xp 00000000 00:00 0 
+7fffe0de5000-7fffe0de7000 rwxp 00000000 00:00 0 
+7fffe0de7000-7fffe0de8000 r-xp 00000000 00:00 0 
+7fffe0de8000-7fffe0ded000 rwxp 00000000 00:00 0 
+7fffe0ded000-7fffe0dee000 r-xp 00000000 00:00 0 
+7fffe0dee000-7fffe0df0000 rwxp 00000000 00:00 0 
+7fffe0df0000-7fffe0df5000 r-xp 00000000 00:00 0 
+7fffe0df5000-7fffe0df6000 rwxp 00000000 00:00 0 
+7fffe0df6000-7fffe0dfa000 r-xp 00000000 00:00 0 
+7fffe0dfa000-7fffe0dfc000 rwxp 00000000 00:00 0 
+7fffe0dfc000-7fffe0e01000 r-xp 00000000 00:00 0 
+7fffe0e01000-7fffe0e04000 rwxp 00000000 00:00 0 
+7fffe0e04000-7fffe0e07000 r-xp 00000000 00:00 0 
+7fffe0e07000-7fffe0e09000 rwxp 00000000 00:00 0 
+7fffe0e09000-7fffe0e0b000 r-xp 00000000 00:00 0 
+7fffe0e0b000-7fffe0e0c000 rwxp 00000000 00:00 0 
+7fffe0e0c000-7fffe0e0d000 r-xp 00000000 00:00 0 
+7fffe0e0d000-7fffe0e0e000 rwxp 00000000 00:00 0 
+7fffe0e0e000-7fffe0e0f000 r-xp 00000000 00:00 0 
+7fffe0e0f000-7fffe0e13000 rwxp 00000000 00:00 0 
+7fffe0e13000-7fffe0e14000 r-xp 00000000 00:00 0 
+7fffe0e14000-7fffe0e16000 rwxp 00000000 00:00 0 
+7fffe0e16000-7fffe0e19000 r-xp 00000000 00:00 0 
+7fffe0e19000-7fffe0e1a000 rwxp 00000000 00:00 0 
+7fffe0e1a000-7fffe0e1e000 r-xp 00000000 00:00 0 
+7fffe0e1e000-7fffe0e1f000 rwxp 00000000 00:00 0 
+7fffe0e1f000-7fffe0e25000 r-xp 00000000 00:00 0 
+7fffe0e25000-7fffe0e27000 rwxp 00000000 00:00 0 
+7fffe0e27000-7fffe0e2b000 r-xp 00000000 00:00 0 
+7fffe0e2b000-7fffe0e2c000 rwxp 00000000 00:00 0 
+7fffe0e2c000-7fffe0e2f000 r-xp 00000000 00:00 0 
+7fffe0e2f000-7fffe0e30000 rwxp 00000000 00:00 0 
+7fffe0e30000-7fffe0e33000 r-xp 00000000 00:00 0 
+7fffe0e33000-7fffe0e37000 rwxp 00000000 00:00 0 
+7fffe0e37000-7fffe0e3c000 r-xp 00000000 00:00 0 
+7fffe0e3c000-7fffe0e3d000 rwxp 00000000 00:00 0 
+7fffe0e3d000-7fffe0e3f000 r-xp 00000000 00:00 0 
+7fffe0e3f000-7fffe0e42000 rwxp 00000000 00:00 0 
+7fffe0e42000-7fffe0e43000 r-xp 00000000 00:00 0 
+7fffe0e43000-7fffe0e44000 rwxp 00000000 00:00 0 
+7fffe0e44000-7fffe0e46000 r-xp 00000000 00:00 0 
+7fffe0e46000-7fffe0e47000 rwxp 00000000 00:00 0 
+7fffe0e47000-7fffe0e51000 r-xp 00000000 00:00 0 
+7fffe0e51000-7fffe0e52000 rwxp 00000000 00:00 0 
+7fffe0e52000-7fffe0e54000 r-xp 00000000 00:00 0 
+7fffe0e54000-7fffe0e55000 rwxp 00000000 00:00 0 
+7fffe0e55000-7fffe0e56000 r-xp 00000000 00:00 0 
+7fffe0e56000-7fffe0e5a000 rwxp 00000000 00:00 0 
+7fffe0e5a000-7fffe0e5d000 r-xp 00000000 00:00 0 
+7fffe0e5d000-7fffe0e5e000 rwxp 00000000 00:00 0 
+7fffe0e5e000-7fffe0e69000 r-xp 00000000 00:00 0 
+7fffe0e69000-7fffe0e6a000 rwxp 00000000 00:00 0 
+7fffe0e6a000-7fffe0e73000 r-xp 00000000 00:00 0 
+7fffe0e73000-7fffe0e76000 rwxp 00000000 00:00 0 
+7fffe0e76000-7fffe0e78000 r-xp 00000000 00:00 0 
+7fffe0e78000-7fffe0e7a000 rwxp 00000000 00:00 0 
+7fffe0e7a000-7fffe0e89000 r-xp 00000000 00:00 0 
+7fffe0e89000-7fffe0e8a000 rwxp 00000000 00:00 0 
+7fffe0e8a000-7fffe0ea0000 r-xp 00000000 00:00 0 
+7fffe0ea0000-7fffe0ea1000 rwxp 00000000 00:00 0 
+7fffe0ea1000-7fffe0eb9000 r-xp 00000000 00:00 0 
+7fffe0eb9000-7fffe0eba000 rwxp 00000000 00:00 0 
+7fffe0eba000-7fffe0ecc000 r-xp 00000000 00:00 0 
+7fffe0ecc000-7fffe0ecd000 rwxp 00000000 00:00 0 
+7fffe0ecd000-7fffe0ed9000 r-xp 00000000 00:00 0 
+7fffe0ed9000-7fffe0eda000 rwxp 00000000 00:00 0 
+7fffe0eda000-7fffe0edb000 r-xp 00000000 00:00 0 
+7fffe0edb000-7fffe0edc000 rwxp 00000000 00:00 0 
+7fffe0edc000-7fffe0f16000 r-xp 00000000 00:00 0 
+7fffe0f16000-7fffe0f18000 rwxp 00000000 00:00 0 
+7fffe0f18000-7fffe0f19000 r-xp 00000000 00:00 0 
+7fffe0f19000-7fffe0f20000 rwxp 00000000 00:00 0 
+7fffe0f20000-7fffe0f31000 r-xp 00000000 00:00 0 
+7fffe0f31000-7fffe0f32000 rwxp 00000000 00:00 0 
+7fffe0f32000-7fffe0f38000 r-xp 00000000 00:00 0 
+7fffe0f38000-7fffe0f3a000 rwxp 00000000 00:00 0 
+7fffe0f3a000-7fffe0f3d000 r-xp 00000000 00:00 0 
+7fffe0f3d000-7fffe0f40000 rwxp 00000000 00:00 0 
+7fffe0f40000-7fffe0f41000 r-xp 00000000 00:00 0 
+7fffe0f41000-7fffe0f42000 rwxp 00000000 00:00 0 
+7fffe0f42000-7fffe0f45000 r-xp 00000000 00:00 0 
+7fffe0f45000-7fffe0f46000 rwxp 00000000 00:00 0 
+7fffe0f46000-7fffe0f54000 r-xp 00000000 00:00 0 
+7fffe0f54000-7fffe0f55000 rwxp 00000000 00:00 0 
+7fffe0f55000-7fffe0f5d000 r-xp 00000000 00:00 0 
+7fffe0f5d000-7fffe0f5e000 rwxp 00000000 00:00 0 
+7fffe0f5e000-7fffe0f6a000 r-xp 00000000 00:00 0 
+7fffe0f6a000-7fffe0f6d000 rwxp 00000000 00:00 0 
+7fffe0f6d000-7fffe0f72000 r-xp 00000000 00:00 0 
+7fffe0f72000-7fffe0f73000 rwxp 00000000 00:00 0 
+7fffe0f73000-7fffe0f75000 r-xp 00000000 00:00 0 
+7fffe0f75000-7fffe0f76000 rwxp 00000000 00:00 0 
+7fffe0f76000-7fffe0f7b000 r-xp 00000000 00:00 0 
+7fffe0f7b000-7fffe0f7d000 rwxp 00000000 00:00 0 
+7fffe0f7d000-7fffe0f7f000 r-xp 00000000 00:00 0 
+7fffe0f7f000-7fffe0f80000 rwxp 00000000 00:00 0 
+7fffe0f80000-7fffe0f81000 r-xp 00000000 00:00 0 
+7fffe0f81000-7fffe0f82000 rwxp 00000000 00:00 0 
+7fffe0f82000-7fffe0f84000 r-xp 00000000 00:00 0 
+7fffe0f84000-7fffe0f86000 rwxp 00000000 00:00 0 
+7fffe0f86000-7fffe0f8b000 r-xp 00000000 00:00 0 
+7fffe0f8b000-7fffe0f8c000 rwxp 00000000 00:00 0 
+7fffe0f8c000-7fffe0f8f000 r-xp 00000000 00:00 0 
+7fffe0f8f000-7fffe0f92000 rwxp 00000000 00:00 0 
+7fffe0f92000-7fffe0f9f000 r-xp 00000000 00:00 0 
+7fffe0f9f000-7fffe0fa1000 rwxp 00000000 00:00 0 
+7fffe0fa1000-7fffe0fa5000 r-xp 00000000 00:00 0 
+7fffe0fa5000-7fffe0fa7000 rwxp 00000000 00:00 0 
+7fffe0fa7000-7fffe0fac000 r-xp 00000000 00:00 0 
+7fffe0fac000-7fffe0fae000 rwxp 00000000 00:00 0 
+7fffe0fae000-7fffe0fb1000 r-xp 00000000 00:00 0 
+7fffe0fb1000-7fffe0fb3000 rwxp 00000000 00:00 0 
+7fffe0fb3000-7fffe0fb4000 r-xp 00000000 00:00 0 
+7fffe0fb4000-7fffe0fb5000 rwxp 00000000 00:00 0 
+7fffe0fb5000-7fffe0fb7000 r-xp 00000000 00:00 0 
+7fffe0fb7000-7fffe0fb8000 rwxp 00000000 00:00 0 
+7fffe0fb8000-7fffe0fba000 r-xp 00000000 00:00 0 
+7fffe0fba000-7fffe0fbc000 rwxp 00000000 00:00 0 
+7fffe0fbc000-7fffe0fc0000 r-xp 00000000 00:00 0 
+7fffe0fc0000-7fffe0fc4000 rwxp 00000000 00:00 0 
+7fffe0fc4000-7fffe0fc7000 r-xp 00000000 00:00 0 
+7fffe0fc7000-7fffe0fdf000 rwxp 00000000 00:00 0 
+7fffe0fdf000-7fffe82a6000 ---p 00000000 00:00 0 
+7fffe82a6000-7fffe82b8000 r-xp 00000000 00:00 0 
+7fffe82b8000-7fffe82b9000 rwxp 00000000 00:00 0 
+7fffe82b9000-7fffe82bd000 r-xp 00000000 00:00 0 
+7fffe82bd000-7fffe82c0000 rwxp 00000000 00:00 0 
+7fffe82c0000-7fffe82c2000 r-xp 00000000 00:00 0 
+7fffe82c2000-7fffe82c3000 rwxp 00000000 00:00 0 
+7fffe82c3000-7fffe82c8000 r-xp 00000000 00:00 0 
+7fffe82c8000-7fffe82ca000 rwxp 00000000 00:00 0 
+7fffe82ca000-7fffe82cc000 r-xp 00000000 00:00 0 
+7fffe82cc000-7fffe82cf000 rwxp 00000000 00:00 0 
+7fffe82cf000-7fffe82d7000 r-xp 00000000 00:00 0 
+7fffe82d7000-7fffe82d9000 rwxp 00000000 00:00 0 
+7fffe82d9000-7fffe82da000 r-xp 00000000 00:00 0 
+7fffe82da000-7fffe82db000 rwxp 00000000 00:00 0 
+7fffe82db000-7fffe82e1000 r-xp 00000000 00:00 0 
+7fffe82e1000-7fffe82e2000 rwxp 00000000 00:00 0 
+7fffe82e2000-7fffe82ea000 r-xp 00000000 00:00 0 
+7fffe82ea000-7fffe82eb000 rwxp 00000000 00:00 0 
+7fffe82eb000-7fffe82ec000 r-xp 00000000 00:00 0 
+7fffe82ec000-7fffe82ed000 rwxp 00000000 00:00 0 
+7fffe82ed000-7fffe82f4000 r-xp 00000000 00:00 0 
+7fffe82f4000-7fffe82f5000 rwxp 00000000 00:00 0 
+7fffe82f5000-7fffe82f8000 r-xp 00000000 00:00 0 
+7fffe82f8000-7fffe82fa000 rwxp 00000000 00:00 0 
+7fffe82fa000-7fffe82fc000 r-xp 00000000 00:00 0 
+7fffe82fc000-7fffe82fd000 rwxp 00000000 00:00 0 
+7fffe82fd000-7fffe82fe000 r-xp 00000000 00:00 0 
+7fffe82fe000-7fffe8301000 rwxp 00000000 00:00 0 
+7fffe8301000-7fffe8306000 r-xp 00000000 00:00 0 
+7fffe8306000-7fffe8307000 rwxp 00000000 00:00 0 
+7fffe8307000-7fffe8309000 r-xp 00000000 00:00 0 
+7fffe8309000-7fffe8310000 rwxp 00000000 00:00 0 
+7fffe8310000-7fffe8313000 r-xp 00000000 00:00 0 
+7fffe8313000-7fffe8314000 rwxp 00000000 00:00 0 
+7fffe8314000-7fffe8316000 r-xp 00000000 00:00 0 
+7fffe8316000-7fffe8320000 rwxp 00000000 00:00 0 
+7fffe8320000-7fffe8323000 r-xp 00000000 00:00 0 
+7fffe8323000-7fffe8324000 rwxp 00000000 00:00 0 
+7fffe8324000-7fffe8327000 r-xp 00000000 00:00 0 
+7fffe8327000-7fffe8333000 rwxp 00000000 00:00 0 
+7fffe8333000-7fffe8334000 r-xp 00000000 00:00 0 
+7fffe8334000-7fffe8335000 rwxp 00000000 00:00 0 
+7fffe8335000-7fffe8343000 r-xp 00000000 00:00 0 
+7fffe8343000-7fffe8344000 rwxp 00000000 00:00 0 
+7fffe8344000-7fffe8346000 r-xp 00000000 00:00 0 
+7fffe8346000-7fffe8347000 rwxp 00000000 00:00 0 
+7fffe8347000-7fffe8349000 r-xp 00000000 00:00 0 
+7fffe8349000-7fffe834a000 rwxp 00000000 00:00 0 
+7fffe834a000-7fffe834f000 r-xp 00000000 00:00 0 
+7fffe834f000-7fffe8350000 rwxp 00000000 00:00 0 
+7fffe8350000-7fffe8351000 r-xp 00000000 00:00 0 
+7fffe8351000-7fffe8516000 rwxp 00000000 00:00 0 
+7fffe8516000-7fffef7de000 ---p 00000000 00:00 0 
+7fffef7de000-7ffff8000000 r--s 00000000 fe:01 2890953                    /usr/lib/jvm/java-11-openjdk-amd64/lib/modules
+7ffff8000000-7ffff868f000 rw-p 00000000 00:00 0 
+7ffff868f000-7ffffc000000 ---p 00000000 00:00 0 
+7ffffc008000-7ffffc009000 r--p 00000000 fe:01 2890945                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libprefs.so
+7ffffc009000-7ffffc00a000 r-xp 00001000 fe:01 2890945                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libprefs.so
+7ffffc00a000-7ffffc00b000 r--p 00002000 fe:01 2890945                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libprefs.so
+7ffffc00b000-7ffffc00c000 r--p 00002000 fe:01 2890945                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libprefs.so
+7ffffc00c000-7ffffc00d000 rw-p 00003000 fe:01 2890945                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libprefs.so
+7ffffc00d000-7ffffc512000 rw-p 00000000 00:00 0 
+7ffffc512000-7ffffc513000 ---p 00000000 00:00 0 
+7ffffc513000-7ffffc613000 rw-p 00000000 00:00 0 
+7ffffc613000-7ffffc614000 ---p 00000000 00:00 0 
+7ffffc614000-7ffffc799000 rw-p 00000000 00:00 0 
+7ffffc799000-7ffffcb67000 ---p 00000000 00:00 0 
+7ffffcb67000-7ffffcb6e000 rw-p 00000000 00:00 0 
+7ffffcb6e000-7ffffcf3c000 ---p 00000000 00:00 0 
+7ffffcf3c000-7ffffcf43000 rw-p 00000000 00:00 0 
+7ffffcf43000-7ffffd311000 ---p 00000000 00:00 0 
+7ffffd311000-7ffffdb1a000 rw-p 00000000 00:00 0 
+7ffffdb1a000-7ffffdb1b000 ---p 00000000 00:00 0 
+7ffffdb1b000-7ffffdc20000 rw-p 00000000 00:00 0 
+7ffffdc20000-7ffffdd06000 ---p 00000000 00:00 0 
+7ffffdd06000-7ffffdd0b000 rw-p 00000000 00:00 0 
+7ffffdd0b000-7ffffddf1000 ---p 00000000 00:00 0 
+7ffffddf1000-7ffffddf6000 rw-p 00000000 00:00 0 
+7ffffddf6000-7ffffddfd000 ---p 00000000 00:00 0 
+7ffffddfd000-7ffffddff000 r--p 00000000 fe:01 2890952                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libzip.so
+7ffffddff000-7ffffde04000 r-xp 00002000 fe:01 2890952                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libzip.so
+7ffffde04000-7ffffde06000 r--p 00007000 fe:01 2890952                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libzip.so
+7ffffde06000-7ffffde07000 r--p 00008000 fe:01 2890952                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libzip.so
+7ffffde07000-7ffffde08000 rw-p 00009000 fe:01 2890952                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libzip.so
+7ffffde08000-7ffffde10000 rw-s 00000000 fe:01 2918586                    /tmp/hsperfdata_root/202
+7ffffde10000-7ffffde12000 r--p 00000000 fe:01 2890935                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libjimage.so
+7ffffde12000-7ffffde15000 r-xp 00002000 fe:01 2890935                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libjimage.so
+7ffffde15000-7ffffde16000 r--p 00005000 fe:01 2890935                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libjimage.so
+7ffffde16000-7ffffde17000 ---p 00006000 fe:01 2890935                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libjimage.so
+7ffffde17000-7ffffde18000 r--p 00006000 fe:01 2890935                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libjimage.so
+7ffffde18000-7ffffde19000 rw-p 00007000 fe:01 2890935                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libjimage.so
+7ffffde19000-7ffffde27000 r--p 00000000 fe:01 2890932                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libjava.so
+7ffffde27000-7ffffde3d000 r-xp 0000e000 fe:01 2890932                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libjava.so
+7ffffde3d000-7ffffde44000 r--p 00024000 fe:01 2890932                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libjava.so
+7ffffde44000-7ffffde45000 r--p 0002a000 fe:01 2890932                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libjava.so
+7ffffde45000-7ffffde46000 rw-p 0002b000 fe:01 2890932                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libjava.so
+7ffffde46000-7ffffde47000 rw-p 00000000 00:00 0 
+7ffffde47000-7ffffde4c000 r--p 00000000 fe:01 2890951                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libverify.so
+7ffffde4c000-7ffffde53000 r-xp 00005000 fe:01 2890951                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libverify.so
+7ffffde53000-7ffffde55000 r--p 0000c000 fe:01 2890951                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libverify.so
+7ffffde55000-7ffffde57000 r--p 0000d000 fe:01 2890951                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libverify.so
+7ffffde57000-7ffffde58000 rw-p 0000f000 fe:01 2890951                    /usr/lib/jvm/java-11-openjdk-amd64/lib/libverify.so
+7ffffde58000-7ffffde59000 r--p 00000000 fe:01 2893920                    /usr/lib/x86_64-linux-gnu/librt.so.1
+7ffffde59000-7ffffde5a000 r-xp 00001000 fe:01 2893920                    /usr/lib/x86_64-linux-gnu/librt.so.1
+7ffffde5a000-7ffffde5b000 r--p 00002000 fe:01 2893920                    /usr/lib/x86_64-linux-gnu/librt.so.1
+7ffffde5b000-7ffffde5c000 r--p 00002000 fe:01 2893920                    /usr/lib/x86_64-linux-gnu/librt.so.1
+7ffffde5c000-7ffffde5d000 rw-p 00003000 fe:01 2893920                    /usr/lib/x86_64-linux-gnu/librt.so.1
+7ffffde5d000-7ffffde61000 ---p 00000000 00:00 0 
+7ffffde61000-7ffffdf5d000 rw-p 00000000 00:00 0 
+7ffffdf5d000-7ffffdf60000 r--p 00000000 fe:01 2884615                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7ffffdf60000-7ffffdf77000 r-xp 00003000 fe:01 2884615                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7ffffdf77000-7ffffdf7b000 r--p 0001a000 fe:01 2884615                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7ffffdf7b000-7ffffdf7c000 r--p 0001d000 fe:01 2884615                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7ffffdf7c000-7ffffdf7d000 rw-p 0001e000 fe:01 2884615                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7ffffdf7d000-7ffffdf8b000 r--p 00000000 fe:01 2893835                    /usr/lib/x86_64-linux-gnu/libm.so.6
+7ffffdf8b000-7ffffe007000 r-xp 0000e000 fe:01 2893835                    /usr/lib/x86_64-linux-gnu/libm.so.6
+7ffffe007000-7ffffe062000 r--p 0008a000 fe:01 2893835                    /usr/lib/x86_64-linux-gnu/libm.so.6
+7ffffe062000-7ffffe063000 r--p 000e4000 fe:01 2893835                    /usr/lib/x86_64-linux-gnu/libm.so.6
+7ffffe063000-7ffffe064000 rw-p 000e5000 fe:01 2893835                    /usr/lib/x86_64-linux-gnu/libm.so.6
+7ffffe064000-7ffffe0fe000 r--p 00000000 fe:01 2884699                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7ffffe0fe000-7ffffe20f000 r-xp 0009a000 fe:01 2884699                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7ffffe20f000-7ffffe27e000 r--p 001ab000 fe:01 2884699                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7ffffe27e000-7ffffe27f000 ---p 0021a000 fe:01 2884699                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7ffffe27f000-7ffffe28a000 r--p 0021a000 fe:01 2884699                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7ffffe28a000-7ffffe28d000 rw-p 00225000 fe:01 2884699                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7ffffe28d000-7ffffe290000 rw-p 00000000 00:00 0 
+7ffffe290000-7ffffe512000 r--p 00000000 fe:01 2890966                    /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so
+7ffffe512000-7fffff1af000 r-xp 00282000 fe:01 2890966                    /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so
+7fffff1af000-7fffff40a000 r--p 00f1f000 fe:01 2890966                    /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so
+7fffff40a000-7fffff40b000 ---p 0117a000 fe:01 2890966                    /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so
+7fffff40b000-7fffff4cf000 r--p 0117a000 fe:01 2890966                    /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so
+7fffff4cf000-7fffff50a000 rw-p 0123e000 fe:01 2890966                    /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so
+7fffff50a000-7fffff564000 rw-p 00000000 00:00 0 
+7fffff564000-7fffff58c000 r--p 00000000 fe:01 2893678                    /usr/lib/x86_64-linux-gnu/libc.so.6
+7fffff58c000-7fffff721000 r-xp 00028000 fe:01 2893678                    /usr/lib/x86_64-linux-gnu/libc.so.6
+7fffff721000-7fffff779000 r--p 001bd000 fe:01 2893678                    /usr/lib/x86_64-linux-gnu/libc.so.6
+7fffff779000-7fffff77a000 ---p 00215000 fe:01 2893678                    /usr/lib/x86_64-linux-gnu/libc.so.6
+7fffff77a000-7fffff77e000 r--p 00215000 fe:01 2893678                    /usr/lib/x86_64-linux-gnu/libc.so.6
+7fffff77e000-7fffff780000 rw-p 00219000 fe:01 2893678                    /usr/lib/x86_64-linux-gnu/libc.so.6
+7fffff780000-7fffff78d000 rw-p 00000000 00:00 0 
+7fffff78d000-7fffff790000 r--p 00000000 fe:01 2890916                    /usr/lib/jvm/java-11-openjdk-amd64/lib/jli/libjli.so
+7fffff790000-7fffff79a000 r-xp 00003000 fe:01 2890916                    /usr/lib/jvm/java-11-openjdk-amd64/lib/jli/libjli.so
+7fffff79a000-7fffff79d000 r--p 0000d000 fe:01 2890916                    /usr/lib/jvm/java-11-openjdk-amd64/lib/jli/libjli.so
+7fffff79d000-7fffff79e000 ---p 00010000 fe:01 2890916                    /usr/lib/jvm/java-11-openjdk-amd64/lib/jli/libjli.so
+7fffff79e000-7fffff79f000 r--p 00010000 fe:01 2890916                    /usr/lib/jvm/java-11-openjdk-amd64/lib/jli/libjli.so
+7fffff79f000-7fffff7a0000 rw-p 00011000 fe:01 2890916                    /usr/lib/jvm/java-11-openjdk-amd64/lib/jli/libjli.so
+7fffff7a0000-7fffff7a2000 r--p 00000000 fe:01 2884721                    /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7fffff7a2000-7fffff7b3000 r-xp 00002000 fe:01 2884721                    /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7fffff7b3000-7fffff7b9000 r--p 00013000 fe:01 2884721                    /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7fffff7b9000-7fffff7ba000 ---p 00019000 fe:01 2884721                    /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7fffff7ba000-7fffff7bb000 r--p 00019000 fe:01 2884721                    /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7fffff7bb000-7fffff7bc000 rw-p 0001a000 fe:01 2884721                    /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7fffff7bc000-7fffff7be000 rw-p 00000000 00:00 0 
+7fffff7c1000-7fffff7c2000 ---p 00000000 00:00 0 
+7fffff7c2000-7fffff7c3000 r--p 00000000 00:00 0 
+7fffff7c3000-7fffff7c4000 ---p 00000000 00:00 0 
+7fffff7c4000-7ffffffc4000 rw-p 00000000 00:00 0 
+7ffffffc4000-7ffffffc6000 r--p 00000000 fe:01 2893403                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7ffffffc6000-7fffffff0000 r-xp 00002000 fe:01 2893403                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7fffffff0000-7fffffffb000 r--p 0002c000 fe:01 2893403                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7fffffffb000-7fffffffc000 ---p 00000000 00:00 0 
+7fffffffc000-7fffffffe000 r--p 00037000 fe:01 2893403                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7fffffffe000-800000000000 rw-p 00039000 fe:01 2893403                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+800000000000-800000023000 r--p 00000000 00:22 2                          /run/rosetta/rosetta
+800000023000-800000081000 r-xp 00023000 00:22 2                          /run/rosetta/rosetta
+800000090000-800000196000 rw-p 00090000 00:22 2                          /run/rosetta/rosetta
+effff71e7000-effff722b000 rw-p 00000000 00:00 0 
+effff722b000-effff722c000 ---p 00000000 00:00 0 
+effff722c000-effff7230000 rw-p 00000000 00:00 0 
+effff7230000-effff7231000 ---p 00000000 00:00 0 
+effff7231000-effff7239000 rw-p 00000000 00:00 0 
+effff7239000-effff723a000 ---p 00000000 00:00 0 
+effff723a000-effff723e000 rw-p 00000000 00:00 0 
+effff723e000-effff723f000 ---p 00000000 00:00 0 
+effff723f000-effff7247000 rw-p 00000000 00:00 0 
+effff7247000-effff7248000 ---p 00000000 00:00 0 
+effff7248000-effff724c000 rw-p 00000000 00:00 0 
+effff724c000-effff724d000 ---p 00000000 00:00 0 
+effff724d000-effff7255000 rw-p 00000000 00:00 0 
+effff7255000-effff7256000 ---p 00000000 00:00 0 
+effff7256000-effff725a000 rw-p 00000000 00:00 0 
+effff725a000-effff725b000 ---p 00000000 00:00 0 
+effff725b000-effff7263000 rw-p 00000000 00:00 0 
+effff7263000-effff7264000 ---p 00000000 00:00 0 
+effff7264000-effff7268000 rw-p 00000000 00:00 0 
+effff7268000-effff7269000 ---p 00000000 00:00 0 
+effff7269000-effff72ed000 rw-p 00000000 00:00 0 
+effff72ed000-effff72ee000 ---p 00000000 00:00 0 
+effff72ee000-effff72f2000 rw-p 00000000 00:00 0 
+effff72f2000-effff72f3000 ---p 00000000 00:00 0 
+effff72f3000-effff72fb000 rw-p 00000000 00:00 0 
+effff72fb000-effff72fc000 ---p 00000000 00:00 0 
+effff72fc000-effff7300000 rw-p 00000000 00:00 0 
+effff7300000-effff7301000 ---p 00000000 00:00 0 
+effff7301000-effff7366000 rw-p 00000000 00:00 0 
+effff7366000-effff7367000 ---p 00000000 00:00 0 
+effff7367000-effff736b000 rw-p 00000000 00:00 0 
+effff736b000-effff736c000 ---p 00000000 00:00 0 
+effff736c000-effff746f000 rw-p 00000000 00:00 0 
+effff746f000-effff7470000 ---p 00000000 00:00 0 
+effff7470000-effff7474000 rw-p 00000000 00:00 0 
+effff7474000-effff7475000 ---p 00000000 00:00 0 
+effff7475000-effff7814000 rw-p 00000000 00:00 0 
+effff7814000-effff7815000 ---p 00000000 00:00 0 
+effff7815000-effff7819000 rw-p 00000000 00:00 0 
+effff7819000-effff781a000 ---p 00000000 00:00 0 
+effff781a000-effff7822000 rw-p 00000000 00:00 0 
+effff7822000-effff7823000 ---p 00000000 00:00 0 
+effff7823000-effff7828000 rw-p 00000000 00:00 0 
+effff7828000-effff7829000 ---p 00000000 00:00 0 
+effff7829000-effff789d000 rw-p 00000000 00:00 0 
+effff789d000-effff789e000 ---p 00000000 00:00 0 
+effff789e000-effff78a2000 rw-p 00000000 00:00 0 
+effff78a2000-effff78a3000 ---p 00000000 00:00 0 
+effff78a3000-effff78ac000 rw-p 00000000 00:00 0 
+effff78ac000-effff78ad000 ---p 00000000 00:00 0 
+effff78ad000-effff78b1000 rw-p 00000000 00:00 0 
+effff78b1000-effff78b2000 ---p 00000000 00:00 0 
+effff78b2000-effff79d8000 rw-p 00000000 00:00 0 
+effff79d8000-effff79d9000 ---p 00000000 00:00 0 
+effff79d9000-effff79dd000 rw-p 00000000 00:00 0 
+effff79dd000-effff79de000 ---p 00000000 00:00 0 
+effff79de000-effff7b2a000 rw-p 00000000 00:00 0 
+effff7b2a000-effff7b2b000 ---p 00000000 00:00 0 
+effff7b2b000-effff7b2f000 rw-p 00000000 00:00 0 
+effff7b2f000-effff7b30000 ---p 00000000 00:00 0 
+effff7b30000-effff7b39000 rw-p 00000000 00:00 0 
+effff7b39000-effff7b3a000 ---p 00000000 00:00 0 
+effff7b3a000-effff7b3e000 rw-p 00000000 00:00 0 
+effff7b3e000-effff7b3f000 ---p 00000000 00:00 0 
+effff7b3f000-effff7b47000 rw-p 00000000 00:00 0 
+effff7b47000-effff7b48000 ---p 00000000 00:00 0 
+effff7b48000-effff7b4c000 rw-p 00000000 00:00 0 
+effff7b4c000-effff7b4d000 ---p 00000000 00:00 0 
+effff7b4d000-effff7b57000 rw-p 00000000 00:00 0 
+effff7b57000-effff7b58000 ---p 00000000 00:00 0 
+effff7b58000-effff7b5c000 rw-p 00000000 00:00 0 
+effff7b5c000-effff7b5d000 ---p 00000000 00:00 0 
+effff7b5d000-effff7b67000 rw-p 00000000 00:00 0 
+effff7b67000-effff7b68000 ---p 00000000 00:00 0 
+effff7b68000-effff7b6c000 rw-p 00000000 00:00 0 
+effff7b6c000-effff7b6d000 ---p 00000000 00:00 0 
+effff7b6d000-effff7b84000 rw-p 00000000 00:00 0 
+effff7b84000-effff7b85000 ---p 00000000 00:00 0 
+effff7b85000-effff7b89000 rw-p 00000000 00:00 0 
+effff7b89000-effff7b8a000 ---p 00000000 00:00 0 
+effff7b8a000-effff7b93000 rw-p 00000000 00:00 0 
+effff7b93000-effff7b94000 ---p 00000000 00:00 0 
+effff7b94000-effff7b98000 rw-p 00000000 00:00 0 
+effff7b98000-effff7b99000 ---p 00000000 00:00 0 
+effff7b99000-effff7bca000 rw-p 00000000 00:00 0 
+effff7bca000-effff7bcb000 ---p 00000000 00:00 0 
+effff7bcb000-effff7bcf000 rw-p 00000000 00:00 0 
+effff7bcf000-effff7bd0000 ---p 00000000 00:00 0 
+effff7bd0000-effff7c19000 rw-p 00000000 00:00 0 
+effff7c19000-effff7c42000 rw-p 00000000 00:00 0 
+effff7c42000-effff7c43000 ---p 00000000 00:00 0 
+effff7c43000-effff7c47000 rw-p 00000000 00:00 0 
+effff7c47000-effff7c48000 ---p 00000000 00:00 0 
+effff7c48000-effff7c90000 rw-p 00000000 00:00 0 
+effff7c90000-effff7c91000 ---p 00000000 00:00 0 
+effff7c91000-effff7c95000 rw-p 00000000 00:00 0 
+effff7c95000-effff7c96000 ---p 00000000 00:00 0 
+effff7c96000-effff7c9e000 rw-p 00000000 00:00 0 
+effff7c9e000-effff7c9f000 ---p 00000000 00:00 0 
+effff7c9f000-effff7ca3000 rw-p 00000000 00:00 0 
+effff7ca3000-effff7ca4000 ---p 00000000 00:00 0 
+effff7ca4000-effff7cb1000 rw-p 00000000 00:00 0 
+effff7cb1000-effff7cb2000 ---p 00000000 00:00 0 
+effff7cb2000-effff7cb6000 rw-p 00000000 00:00 0 
+effff7cb6000-effff7cb7000 ---p 00000000 00:00 0 
+effff7cb7000-effff7cbf000 rw-p 00000000 00:00 0 
+effff7cbf000-effff7cc0000 ---p 00000000 00:00 0 
+effff7cc0000-effff7cc8000 rw-p 00000000 00:00 0 
+effff7cc8000-effff7cc9000 ---p 00000000 00:00 0 
+effff7cc9000-effff7ccd000 rw-p 00000000 00:00 0 
+effff7ccd000-effff7cce000 ---p 00000000 00:00 0 
+effff7cce000-effff7d5f000 rw-p 00000000 00:00 0 
+effff7d5f000-effff7d60000 ---p 00000000 00:00 0 
+effff7d60000-effff7d64000 rw-p 00000000 00:00 0 
+effff7d64000-effff7d65000 ---p 00000000 00:00 0 
+effff7d65000-effff7d90000 rw-p 00000000 00:00 0 
+effff7d90000-effff7d91000 ---p 00000000 00:00 0 
+effff7d91000-effff7de7000 rw-p 00000000 00:00 0 
+effff7de7000-effff7de8000 ---p 00000000 00:00 0 
+effff7de8000-effff7dec000 rw-p 00000000 00:00 0 
+effff7dec000-effff7ded000 ---p 00000000 00:00 0 
+effff7ded000-effff7ff8000 rw-p 00000000 00:00 0 
+effff7ff8000-efffffff8000 rwxp 00000000 00:00 0 
+efffffff8000-f00008a86000 rw-p 00000000 00:00 0 
+ffff963ff000-ffff96401000 r--p 00000000 00:00 0                          [vvar]
+ffff96401000-ffff96402000 r-xp 00000000 00:00 0                          [vdso]
+ffffcc02f000-ffffcc050000 rw-p 00000000 00:00 0                          [stack]
+
+
+VM Arguments:
+java_command: Mars4.5la.jar sm asm1.s test_11_compare.s
+java_class_path (initial): Mars4.5la.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 130023424                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 2057306112                                {product} {ergonomic}
+   size_t MaxNewSize                               = 1234173952                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5836300                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122910970                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122910970                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+LC_ALL=en_US.UTF-8
+TERM=xterm
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xead350], sa_mask[0]=11111111111111111111111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xead350], sa_mask[0]=11111111111111111111111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0xead350], sa_mask[0]=11111111111111111111111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0xbef750], sa_mask[0]=11111111111111111111111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0xbef750], sa_mask[0]=11111111111111111111111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0xead350], sa_mask[0]=11111111111111111111111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR2: [libjvm.so+0xbef5f0], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0xbefdb0], sa_mask[0]=11111111111111111111111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0xbefdb0], sa_mask[0]=11111111111111111111111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0xbefdb0], sa_mask[0]=11111111111111111111111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0xbefdb0], sa_mask[0]=11111111111111111111111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=22.04
+DISTRIB_CODENAME=jammy
+DISTRIB_DESCRIPTION="Ubuntu 22.04.3 LTS"
+uname:Linux 6.6.26-linuxkit #1 SMP Sat Apr 27 04:13:19 UTC 2024 x86_64
+OS uptime: 0 days 0:00 hours
+libc:glibc 2.35 NPTL 2.35 
+rlimit (soft/hard): STACK 8192k/infinity , CORE 0k/infinity , NPROC infinity/infinity , NOFILE 1048576/1048576 , AS infinity/infinity , CPU infinity/infinity , DATA infinity/infinity , FSIZE infinity/infinity , MEMLOCK infinity/infinity
+load average:0.69 0.16 0.05
+
+/proc/meminfo:
+MemTotal:        8029248 kB
+MemFree:         7327620 kB
+MemAvailable:    7461084 kB
+Buffers:            9240 kB
+Cached:           266424 kB
+SwapCached:            0 kB
+Active:           564096 kB
+Inactive:          32576 kB
+Active(anon):     321640 kB
+Inactive(anon):        0 kB
+Active(file):     242456 kB
+Inactive(file):    32576 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:       1048572 kB
+SwapFree:        1048572 kB
+Zswap:                 0 kB
+Zswapped:              0 kB
+Dirty:               164 kB
+Writeback:             0 kB
+AnonPages:        317620 kB
+Mapped:           145568 kB
+Shmem:               628 kB
+KReclaimable:       9928 kB
+Slab:              44028 kB
+SReclaimable:       9928 kB
+SUnreclaim:        34100 kB
+KernelStack:        4672 kB
+PageTables:         2224 kB
+SecPageTables:         0 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     5063196 kB
+Committed_AS:    2091780 kB
+VmallocTotal:   133141626880 kB
+VmallocUsed:        2472 kB
+VmallocChunk:          0 kB
+Percpu:             2208 kB
+AnonHugePages:    167936 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+
+/sys/kernel/mm/transparent_hugepage/enabled:
+[always] madvise never
+/sys/kernel/mm/transparent_hugepage/defrag (defrag/compaction efforts parameter):
+always defer defer+madvise [madvise] never
+
+Process Memory:
+Virtual Size: 5845876K (peak: 13728612K)
+Resident Set Size: 173104K (peak: 173104K) (anon: 145200K, file: 27904K, shmem: 0K)
+Swapped out: 0K
+C-Heap outstanding allocations: 63481K, retained: 27186K
+glibc malloc tunables: (default)
+
+/proc/sys/kernel/threads-max (system-wide limit on the number of threads):
+62685
+/proc/sys/vm/max_map_count (maximum number of memory map areas a process may have):
+262144
+/proc/sys/kernel/pid_max (system-wide limit on number of process identifiers):
+99999
+
+container (cgroup) information:
+container_type: cgroupv2
+cpu_cpuset_cpus: not supported
+cpu_memory_nodes: not supported
+active_processor_count: 8
+cpu_quota: no quota
+cpu_period: 100000
+cpu_shares: no shares
+memory_limit_in_bytes: unlimited
+memory_and_swap_limit_in_bytes: unlimited
+memory_soft_limit_in_bytes: unlimited
+memory_usage_in_bytes: 216852 k
+memory_max_usage_in_bytes: not supported
+memory_swap_current_in_bytes: unlimited
+memory_swap_max_limit_in_bytes: unlimited
+maximum number of tasks: unlimited
+current number of tasks: 33
+
+Steal ticks since vm start: 0
+Steal ticks percentage since vm start:  0.000
+
+CPU:total 8 (initial active 8) (1 cores per cpu, 1 threads per core) family 6 model 44 stepping 0 microcode 0x0, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, aes, clmul, tsc, tscinvbit, tscinv
+
+/proc/cpuinfo:
+processor	: 0
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm ssbs sb paca pacg dcpodp flagm2 frint
+CPU implementer	: 0x61
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0x000
+CPU revision	: 0
+
+processor	: 1
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm ssbs sb paca pacg dcpodp flagm2 frint
+CPU implementer	: 0x61
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0x000
+CPU revision	: 0
+
+processor	: 2
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm ssbs sb paca pacg dcpodp flagm2 frint
+CPU implementer	: 0x61
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0x000
+CPU revision	: 0
+
+processor	: 3
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm ssbs sb paca pacg dcpodp flagm2 frint
+CPU implementer	: 0x61
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0x000
+CPU revision	: 0
+
+processor	: 4
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm ssbs sb paca pacg dcpodp flagm2 frint
+CPU implementer	: 0x61
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0x000
+CPU revision	: 0
+
+processor	: 5
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm ssbs sb paca pacg dcpodp flagm2 frint
+CPU implementer	: 0x61
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0x000
+CPU revision	: 0
+
+processor	: 6
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm ssbs sb paca pacg dcpodp flagm2 frint
+CPU implementer	: 0x61
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0x000
+CPU revision	: 0
+
+processor	: 7
+BogoMIPS	: 48.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm ssbs sb paca pacg dcpodp flagm2 frint
+CPU implementer	: 0x61
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0x000
+CPU revision	: 0
+
+Online cpus:
+0-7
+Offline cpus:
+
+BIOS frequency limitation:
+<Not Available>
+Frequency switch latency (ns):
+<Not Available>
+Available cpu frequencies:
+<Not Available>
+Current governor:
+<Not Available>
+Core performance/turbo boost:
+<Not Available>
+
+Memory: 4k page, physical 8029248k(7327380k free), swap 1048572k(1048572k free)
+
+vm_info: OpenJDK 64-Bit Server VM (11.0.21+9-post-Ubuntu-0ubuntu122.04) for linux-amd64 JRE (11.0.21+9-post-Ubuntu-0ubuntu122.04), built on Oct 19 2023 08:41:03 by "unknown" with gcc 11.4.0
+
+END.
