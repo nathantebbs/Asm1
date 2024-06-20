@@ -9,7 +9,7 @@ Exact instructions for la $t4, alpha:
 lui $1, 0x00001001
 ori $20, $1, 0x00000034
 
-Hex cod for "lui $1, 0x00001001": 0x3c011001
+Hex code for "lui $1, 0x00001001": 0x3c011001
 Hex code for "ori $20, $1, 0x00000034": 0x3430034
 -------------------------------------------------------------
 PART 2:
